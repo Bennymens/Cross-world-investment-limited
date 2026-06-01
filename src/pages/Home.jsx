@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-import heroImg from "../assets/hero-avocados.png";
 import farmImg from "../assets/farm-aerial.png";
 import produceImg from "../assets/fresh-produce.png";
 import longevityImg from "../assets/produce-longevity.png";
@@ -21,7 +20,7 @@ function useReveal(threshold = 0.15) {
           obs.unobserve(el);
         }
       },
-      { threshold }
+      { threshold },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -55,7 +54,7 @@ function AnimatedNumber({ value, suffix = "", duration = 1800 }) {
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -82,15 +81,13 @@ export default function Home() {
       {/* ===== SECTION 1: HERO HEADER ===== */}
       <section className="hero-header" ref={heroRef}>
         <div className="hero-bg">
-          <img src={heroImg} alt="Fresh organic produce" />
+          <img src={farmImg} alt="Sustainable organic farming" />
         </div>
         <div className="hero-content">
           <h1 className="hero-title">
             <span className="title-line">Plant-Based</span>
             <span className="title-line">Protection</span>
-            <span className="title-line title-accent">
-              Inspired by Nature
-            </span>
+            <span className="title-line title-accent">Inspired by Nature</span>
           </h1>
           <div className="scroll-cta">
             <span className="scroll-label">Scroll</span>
@@ -104,15 +101,16 @@ export default function Home() {
         <div className="intro-grid">
           <div className="intro-left">
             <h2 className="intro-heading">
-              Fresher &amp; Better — For&nbsp;You and For&nbsp;All&nbsp;of&nbsp;Us.
+              Fresher &amp; Better — For&nbsp;You and
+              For&nbsp;All&nbsp;of&nbsp;Us.
             </h2>
           </div>
           <div className="intro-right">
             <p className="intro-text">
               Nearly 800 million people (1 in 10 of the world's population) go
               to bed hungry each night, yet one third of food and 45% of fruits
-              and vegetables are lost or thrown away before they have a chance to
-              be eaten.
+              and vegetables are lost or thrown away before they have a chance
+              to be eaten.
             </p>
             <Link to="/our-story" className="link-arrow">
               <span>Our Story</span>
