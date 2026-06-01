@@ -1,0 +1,223 @@
+/* ===== NAVBAR ===== */
+
+.the-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none; /* Allows clicks to pass through empty margins */
+}
+
+/* Outer layout context that centers/offsets the navbar */
+.the-nav .the-container.relative {
+  position: relative;
+  display: block;
+  margin: 0px 45.25px; /* Offset margins from screen edges */
+  pointer-events: auto; /* Restores click events for navbar content */
+}
+
+/* The actual bar layout */
+.bar.flex-center {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.4rem;
+  width: 100%;
+  height: 4.5rem;
+  color: rgb(21, 71, 38);
+  box-sizing: border-box;
+}
+
+/* Background Layer providing the rounded bottom corners */
+.bar .bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(250, 243, 230); /* Cream off-white */
+  border-radius: 0px 0px 0.8rem 0.8rem; /* Curved bottom corners */
+  z-index: -1; /* Placed behind links and logo */
+  transition: box-shadow 0.35s ease;
+}
+
+.bar.flex-center.scrolled .bg {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* Drop shadow when scrolled */
+}
+
+.left, .right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.link-main {
+  text-decoration: none;
+  color: inherit;
+  font-size: 11.5px;
+  font-weight: 500;
+  margin-right: 24px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.left .link-main:last-child {
+  margin-right: 0;
+}
+
+.right .item {
+  margin-left: 24px;
+}
+
+.right .item .link-main {
+  margin-right: 0;
+}
+
+.hover-underlinee {
+  position: relative;
+  display: inline-block;
+}
+
+.line {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.link-main:hover .line {
+  transform: scaleX(1);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center .logo-svg {
+  height: 28px;
+  width: auto;
+  display: block;
+  color: inherit;
+}
+
+/* ===== HAMBURGER (mobile only) ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  height: 22px;
+  justify-content: center;
+  z-index: 1100;
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ham-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgb(21, 71, 38);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.hamburger.is-open .ham-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-open .ham-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-open .ham-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== MOBILE MENU OVERLAY ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background: rgb(250, 243, 230);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: center;
+}
+
+.mobile-nav a {
+  font-size: 28px;
+  font-weight: 500;
+  color: rgb(21, 71, 38);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.mobile-nav a:hover {
+  opacity: 0.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .the-nav .the-container.relative {
+    margin: 0px 15px; /* Narrower side margin on mobile */
+  }
+
+  .bar.flex-center {
+    height: 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .left, .right {
+    display: none; /* Hide desktop nav items on mobile */
+  }
+
+  .hamburger {
+    display: flex; /* Show mobile hamburger icon */
+  }
+}
