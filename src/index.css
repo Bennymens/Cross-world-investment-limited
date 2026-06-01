@@ -12,8 +12,8 @@
   --max-w: 1200px;
   --nav-height: 7rem;
   --sans:
-    "FoundersGrotesk", "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+    "Poppins", "FoundersGrotesk", "Inter", system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 @font-face {
