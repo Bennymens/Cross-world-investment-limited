@@ -48,7 +48,8 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* Drop shadow when scrolled */
 }
 
-.left, .right {
+.left,
+.right {
   display: flex;
   align-items: center;
   flex: 1;
@@ -114,7 +115,7 @@
 }
 
 .center .logo-svg {
-  height: 28px;
+  height: 100px;
   width: auto;
   display: block;
   color: inherit;
@@ -142,7 +143,9 @@
   height: 2px;
   background: rgb(21, 71, 38);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.2s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
   transform-origin: center;
 }
 
@@ -213,7 +216,8 @@
     padding: 0 1.5rem;
   }
 
-  .left, .right {
+  .left,
+  .right {
     display: none; /* Hide desktop nav items on mobile */
   }
 
