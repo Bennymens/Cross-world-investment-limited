@@ -844,3 +844,51 @@
     max-height: 280px;
   }
 }
+
+/* ==========================================================================
+   WHAT WE DO SECTIONS (Scroll overlap wrapper)
+   ========================================================================== */
+.what-we-do-wrapper {
+  position: relative;
+  z-index: 2;
+  background-color: var(--site-bg);
+  border-radius: 48px; /* Beautiful rounded corners all around! */
+  margin-top: -100px; /* Overlaps stats-section bottom */
+  padding: 120px clamp(24px, 5vw, 80px) 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+  box-shadow: 0 -20px 50px rgba(21, 71, 38, 0.08); /* Upper-directed shadow overlay */
+}
+
+.what-we-do-image-wrapper {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(21, 71, 38, 0.06);
+}
+
+.what-we-do-image {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.what-we-do-image-wrapper:hover .what-we-do-image {
+  transform: scale(1.03);
+}
+
+/* Responsive adjustment for What We Do panels */
+@media (max-width: 900px) {
+  .what-we-do-wrapper {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    gap: 90px;
+    margin-top: -60px;
+  }
+}
+

@@ -183,7 +183,7 @@ export default function Home() {
 
       {/* ===== SECTION 5: STATISTICS (Full-bleed Background Image) ===== */}
       <section className="stats-section" ref={statsRef}>
-        <img src="" alt="" className="stats-bg-image" />
+        <img src="/src/assets/cassava 1.webp" alt="Cassava Starch Processing Background" className="stats-bg-image" />
         <div className="stats-overlay" />
         <div className="stats-content-wrapper">
           <h2 className="stats-main-heading">Our sustainability impact since 2021</h2>
@@ -199,7 +199,7 @@ export default function Home() {
               </p>
             </div>
             <div className="stat-card">
-              <AnimatedNumber value={6.96} suffix="B" />
+              <AnimatedNumber value={7.0} suffix="B" />
               <p className="stat-label">liters of water conserved, enough to fill 2,800 Olympic-sized swimming pools.</p>
             </div>
           </div>
@@ -209,61 +209,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SECTION 6: TEXT + IMAGE BLOCK (reversed) ===== */}
-      <section className="half-block reversed" ref={textImgRef}>
-        <div className="half-grid">
-          <div className="half-image">
-            <img src={longevityImg} alt="Fresh produce lasting longer" />
-          </div>
-          <div className="half-content">
-            <h2 className="half-heading">
-              Longer-lasting produce. Less food waste.
+      {/* ===== WHAT WE DO SECTIONS (Scroll overlap wrapper) ===== */}
+      <div className="home-content-scroll what-we-do-wrapper">
+        
+        {/* What We Do Panel 1: Leading the way */}
+        <section className="story-panel row-text-right what-we-do-panel-1" ref={textImgRef}>
+          <div className="story-col col-left">
+            <h2 className="story-heading">
+              And we're leading the way.
             </h2>
-            <p className="half-text">
-              By helping produce stay fresh longer, we help reduce food waste at
-              every point in the supply chain — from farms to stores to your
-              kitchen.
+          </div>
+          <div className="story-col col-right">
+            <p className="story-text">
+              Our sustainable extraction and refining processes represent a massive leap forward in cassava processing technology. We partner with local farming communities, providing state-of-the-art starch processing infrastructure that maximizes value directly at the source. From starch extraction and dewatering to advanced flash drying, we ensure premium quality that satisfies rigorous industrial and clean-label standards worldwide.
             </p>
-            <Link to="/products" className="link-arrow">
-              <span>Our Products</span>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+            <Link to="/products" className="story-link">
+              Products ↳
             </Link>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== SECTION 7: FIND / CTA ===== */}
-      <section className="find-section" ref={findRef}>
-        <div className="find-inner">
-          <div className="find-content">
-            <h2 className="find-heading">Find Our Products Near&nbsp;You</h2>
-            <p className="find-text">
-              Look for our sticker on your favorite produce at participating
-              retailers nationwide.
+        {/* What We Do Panel 2: Refinement & Starch Processing */}
+        <section className="story-panel row-media-right what-we-do-panel-2" ref={findRef}>
+          <div className="story-col col-left">
+            <div className="what-we-do-image-wrapper">
+              <img src="/src/assets/team-lab.png" alt="Our refining team in action" className="what-we-do-image" />
+            </div>
+          </div>
+          <div className="story-col col-right">
+            <h2 className="story-heading">
+              Let's talk about the refinement.
+            </h2>
+            <p className="story-text">
+              Processing cassava into high-grade industrial starch requires high precision. We take harvested fresh roots and immediately subject them to automated cleaning, peeling, and rasping to release the starch granules in their purest state.
             </p>
-            <Link to="/contact" className="btn-primary">
-              Contact Us
+            <p className="story-text">
+              Our processing cycle integrates cutting-edge centrifugal separation and hydrocyclone technology. This separates starch from fibers and proteins with zero chemicals, preserving the organic integrity of the crop while recycling up to 90% of the extraction water.
+            </p>
+            <p className="story-text">
+              Finally, our high-speed flash dryers gently dehydrate the starch under strictly regulated temperatures. The result is an ultra-fine, pure white powder with consistent viscosity and high paste clarity, ready for regional and international supply chains.
+            </p>
+            <Link to="/faq" className="story-link">
+              FAQs: Quality &amp; Process ↳
             </Link>
           </div>
-          <div className="find-image">
-            <img src={labImg} alt="Our team at work" />
-          </div>
-        </div>
-        <div className="find-bg-shapes">
-          <div className="shape shape-1" />
-          <div className="shape shape-2" />
-          <div className="shape shape-3" />
-        </div>
-      </section>
+        </section>
+
+      </div>
     </main>
   );
 }
