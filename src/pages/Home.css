@@ -388,7 +388,7 @@
 }
 
 /* Hide empty background image to prevent broken icon border in some browsers */
-.stats-bg-image:not([src]), 
+.stats-bg-image:not([src]),
 .stats-bg-image[src=""],
 .stats-bg-image[src="null"] {
   display: none;
@@ -742,6 +742,23 @@
   }
 }
 
+/* Specific override to nudge the 'What we do' heading slightly right
+   (it was pushed too far left by the global negative margin) */
+@media (min-width: 901px) {
+  .what-we-do-panel-1 .story-heading {
+    margin-left: 12px;
+    max-width: calc(100% - 12px);
+  }
+}
+
+/* Nudge the 'Let's talk about the refinement.' heading right on desktop */
+@media (min-width: 901px) {
+  .what-we-do-panel-2 .story-heading {
+    margin-left: 12px;
+    max-width: calc(100% - 12px);
+  }
+}
+
 .story-text {
   font-size: 18.5px; /* Increased font size of subtexts */
   font-weight: 550; /* Added font weight to make it thicker */
@@ -762,7 +779,9 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: gap 0.3s ease, opacity 0.2s ease;
+  transition:
+    gap 0.3s ease,
+    opacity 0.2s ease;
   width: fit-content;
   position: relative;
   padding-bottom: 2px;
@@ -891,4 +910,3 @@
     margin-top: -60px;
   }
 }
-
