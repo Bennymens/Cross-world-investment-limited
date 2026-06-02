@@ -146,6 +146,10 @@ export default function Footer() {
             <Link to="/" className="footer-logo-link">
               <img src={Logo} alt="Agro logo" className="the-logo" />
             </Link>
+            <div className="footer-logo-text">
+              <span className="footer-logo-line1">cros world</span>
+              <span className="footer-logo-line2">investment limited</span>
+            </div>
           </div>
         </div>
 

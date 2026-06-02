@@ -50,7 +50,10 @@
 /* Logo */
 .the-footer .footer-logo-container {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center; /* center logo under the title */
+  gap: 6px; /* tighter gap to bring logo closer to title */
+  margin-top: -8px; /* pull logo upward */
 }
 
 .the-footer .footer-logo-link {
@@ -63,10 +66,34 @@
 }
 
 .the-footer .the-logo {
-  height: 96px;
+  height: 160px; /* bigger logo */
   width: auto;
   color: var(--text-color);
   display: block;
+}
+
+/* Footer logo accompanying text */
+/* Footer logo accompanying text (stacked) */
+.the-footer .footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: var(--text-color);
+  line-height: 1;
+}
+
+.the-footer .footer-logo-line1 {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.the-footer .footer-logo-line2 {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.95;
 }
 
 /* Navigation Links */
@@ -271,8 +298,32 @@
   }
 
   .the-footer .footer-logo-container {
-    align-items: flex-start;
-    margin-top: 10px;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .the-footer .the-logo {
+    height: 120px;
+  }
+
+  .the-footer .footer-logo-line1 {
+    font-size: 16px;
+  }
+
+  .the-footer .footer-logo-line2 {
+    font-size: 14px;
+  }
+
+  .the-footer .footer-logo-text {
+    margin-left: 8px;
+  }
+
+  .the-footer .footer-logo-line1 {
+    font-size: 16px;
+  }
+
+  .the-footer .footer-logo-line2 {
+    font-size: 14px;
   }
 
   /* Smaller fonts for mobile links */
