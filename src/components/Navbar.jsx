@@ -96,23 +96,7 @@ export default function Navbar() {
                   </div>
                 </NavLink>
               </div>
-              <div className="item">
-                <a
-                  href="https://apeel.substack.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-main relative"
-                >
-                  <div className="content relative">
-                    <div className="inner">
-                      <div className="hover-underlinee">
-                        <div className="label">Subscribe</div>
-                        <div className="line"></div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              {/* Subscribe link removed per request */}
             </div>
 
             {/* Hamburger (mobile only) */}
@@ -147,14 +131,7 @@ export default function Navbar() {
           <NavLink to="/faq" onClick={() => setMenuOpen(false)}>
             FAQ
           </NavLink>
-          <a
-            href="https://apeel.substack.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-          >
-            Subscribe
-          </a>
+          {/* Subscribe link removed from mobile menu per request */}
         </nav>
       </div>
     </>
