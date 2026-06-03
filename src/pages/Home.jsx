@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 import farmImg from "../assets/farm-aerial.png";
-import produceImg from "../assets/fresh-produce.png";
-import longevityImg from "../assets/produce-longevity.png";
 import labImg from "../assets/team-lab.png";
 import cassavaImg from "../assets/Cassava.png";
 import cassavaBg from "../assets/cassava 1.webp";
@@ -74,7 +72,6 @@ export default function Home() {
   const storyRef1 = useReveal(0.12);
   const storyRef2 = useReveal(0.12);
   const storyRef3 = useReveal(0.12);
-  const fullImgRef = useReveal(0.1);
   const statsRef = useReveal(0.12);
   const textImgRef = useReveal(0.1);
   const findRef = useReveal(0.1);

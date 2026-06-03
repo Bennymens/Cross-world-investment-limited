@@ -144,12 +144,12 @@ export default function Footer() {
           <div className="footer-title">Stay fresh.</div>
           <div className="footer-bottom-section footer-logo-container">
             <Link to="/" className="footer-logo-link">
-              <img src={Logo} alt="Agro logo" className="the-logo" />
+              <img src={Logo} alt="Cross World Logo" className="footer-logo-icon" />
+              <div className="footer-brand-text">
+                <span className="footer-logo-brand">Cross World™</span>
+                <span className="footer-logo-sub">Investment Limited</span>
+              </div>
             </Link>
-            <div className="footer-logo-text">
-              <span className="footer-logo-line1">cros world</span>
-              <span className="footer-logo-line2">investment limited</span>
-            </div>
           </div>
         </div>
 
@@ -168,11 +168,11 @@ export default function Footer() {
 
           <div className="footer-bottom-section footer-address-container">
             <div className="footer-address-block">
-              <div className="address-title">Accra</div>
+              <div className="address-title">Ghana</div>
               <div className="address-details">
                 No. 14 Liberation Road
                 <br />
-                Cantonments
+                Cantonments, Accra
               </div>
             </div>
 
@@ -208,7 +208,7 @@ export default function Footer() {
               ))}
             </div>
             <div className="footer-copyright">
-              © {new Date().getFullYear()}, Agro Ghana.
+              © {new Date().getFullYear()}, Cross World Investment Limited.
               <br />
               All rights reserved.
             </div>

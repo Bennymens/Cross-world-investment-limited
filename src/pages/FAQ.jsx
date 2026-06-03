@@ -1,7 +1,7 @@
 export default function FAQ() {
-    return (
-        <div>
-            <h1>FAQ Page</h1>
-        </div>
-    );
-}
+  return (
+    <div className="faq-page">
+      <h1>FAQ Page</h1>
+    </div>
+  );
+}

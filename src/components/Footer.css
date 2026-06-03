@@ -4,14 +4,18 @@
   --bg-color: #213c28; /* Premium rich forest green */
   --text-color: #faf3e6; /* Elegant off-white/cream matching page background */
 
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+
   width: 100%;
-  margin-top: 80px;
+  margin-top: 0;
   margin-bottom: 0 !important;
 
   background-color: var(--bg-color);
   color: var(--text-color);
   padding: 100px 50px 80px; /* Reduced left/right padding to move content outward */
-  border-radius: 40px 40px 0 0;
+  border-radius: 0;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
@@ -51,49 +55,49 @@
 .the-footer .footer-logo-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center logo under the title */
-  gap: 6px; /* tighter gap to bring logo closer to title */
-  margin-top: -8px; /* pull logo upward */
+  align-items: flex-start; /* left align logo and brand */
+  gap: 12px;
 }
 
 .the-footer .footer-logo-link {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
   transition: opacity 0.25s ease;
+  color: var(--text-color);
 }
 
 .the-footer .footer-logo-link:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
-.the-footer .the-logo {
-  height: 160px; /* bigger logo */
+.the-footer .footer-logo-icon {
+  height: 42px;
   width: auto;
-  color: var(--text-color);
   display: block;
 }
 
-/* Footer logo accompanying text */
-/* Footer logo accompanying text (stacked) */
-.the-footer .footer-logo-text {
+.the-footer .footer-brand-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  margin-top: 6px;
-  color: var(--text-color);
-  line-height: 1;
+  text-align: left;
+  line-height: 1.15;
 }
 
-.the-footer .footer-logo-line1 {
-  font-size: 18px;
+.the-footer .footer-logo-brand {
+  font-size: 26px;
   font-weight: 700;
+  letter-spacing: -0.5px;
   text-transform: none;
 }
 
-.the-footer .footer-logo-line2 {
-  font-size: 16px;
+.the-footer .footer-logo-sub {
+  font-size: 10px;
   font-weight: 600;
-  opacity: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.85;
 }
 
 /* Navigation Links */
@@ -302,28 +306,20 @@
     margin-top: 12px;
   }
 
-  .the-footer .the-logo {
-    height: 120px;
+  .the-footer .footer-logo-link {
+    justify-content: center;
   }
 
-  .the-footer .footer-logo-line1 {
-    font-size: 16px;
+  .the-footer .footer-logo-icon {
+    height: 32px;
   }
 
-  .the-footer .footer-logo-line2 {
-    font-size: 14px;
+  .the-footer .footer-logo-brand {
+    font-size: 20px;
   }
 
-  .the-footer .footer-logo-text {
-    margin-left: 8px;
-  }
-
-  .the-footer .footer-logo-line1 {
-    font-size: 16px;
-  }
-
-  .the-footer .footer-logo-line2 {
-    font-size: 14px;
+  .the-footer .footer-logo-sub {
+    font-size: 9px;
   }
 
   /* Smaller fonts for mobile links */
