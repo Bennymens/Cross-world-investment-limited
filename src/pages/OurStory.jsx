@@ -68,47 +68,31 @@ export default function OurStory() {
             </div>
             <div className="story-col col-right">
               <p className="story-text story-lead">
-                During graduate school, James was driving home past beautiful
-                and bountiful fields of fresh produce along Central California
-                while listening to a podcast about global hunger. It made him
-                wonder: how could so many people be hungry when there was such
-                an abundance of food growing? And if so many were hungry, how
-                could so much of this abundance be going to waste?
+                Driving past cassava fields, it's striking how abundant the crop
+                is and how quickly value can be lost when roots aren't processed
+                soon after harvest. This reality motivated a focus on reducing
+                post-harvest loss by processing cassava close to where it's
+                grown.
               </p>
               <p className="story-text">
-                According to the UN World Food Program and others, it's mostly
-                due to a lack of access to food, technology, and resilient food
-                production systems.
+                Globally, much of the food loss problem stems from limited
+                access to processing, cold storage, and resilient supply chains
+                — a challenge especially acute for root crops like cassava which
+                begin to degrade rapidly after harvest.
               </p>
               <p className="story-text">
-                Moisture loss, oxidation, and pest and fungal stressors are
-                leading contributors to fruit and vegetable spoilage.
+                Moisture loss, oxidation, and damage from pests and fungi all
+                accelerate spoilage. Conventional fixes — long-distance cold
+                chains, heavy chemical treatments, or single-use packaging — are
+                costly or unsustainable in many producing regions.
               </p>
               <p className="story-text">
-                But learning more about how we protect food today only left
-                James even more frustrated. For decades, across the globe, we've
-                relied heavily on a surprisingly small handful of ways to help
-                fresh fruits and vegetables last longer after harvest. These
-                tools have gotten us a long way, but also come with challenges.
-              </p>
-              <p className="story-text">
-                Refrigeration is a massive energy suck, a significant source of
-                emissions, and is expensive — it's why a lot of places around
-                the world don't have access to refrigeration. Designer
-                pesticides aren't great for our long-term health or the
-                environment. Waxes — which can be plant-based but are also often
-                animal- or petroleum-derived — make produce look better, but
-                don't really meaningfully improve quality or shelf life. And
-                packaging just adds to our growing problems with single-use
-                plastics and microplastics.
-              </p>
-              <p className="story-text">
-                And all this leads to a pretty narrow set of fresh fruits and
-                vegetables available in stores today relative to the diversity
-                of what's really out there — only the ones that can survive
-                storage and transportation are commonly available, which aren't
-                really the ones that always taste best or have the highest
-                density of nutrients.
+                Converting cassava into high-quality starch near the farm solves
+                several problems at once: roots are washed and peeled, milled to
+                release starch, then separated, dewatered, and dried into stable
+                starch grades. The approach preserves value, reduces waste, and
+                enables local economic opportunities while keeping environmental
+                impact low through water recycling and efficient processing.
               </p>
             </div>
           </div>
@@ -201,18 +185,18 @@ export default function OurStory() {
           <div className="founders-grid">
             <div className="founder-card">
               <div className="founder-avatar initials-jr">JR</div>
-              <h3 className="founder-name">James Rogers</h3>
-              <p className="founder-role">Founder</p>
+              <h3 className="founder-name">Founder</h3>
+              <p className="founder-role">Leadership Team</p>
             </div>
             <div className="founder-card">
               <div className="founder-avatar initials-jd">JD</div>
-              <h3 className="founder-name">Jenny Du</h3>
-              <p className="founder-role">Co-Founder &amp; SVP Operations</p>
+              <h3 className="founder-name">Co-Founder</h3>
+              <p className="founder-role">Operations Lead</p>
             </div>
             <div className="founder-card">
               <div className="founder-avatar initials-lp">LP</div>
-              <h3 className="founder-name">Lou Perez</h3>
-              <p className="founder-role">Co-Founder &amp; SVP Technology</p>
+              <h3 className="founder-name">Co-Founder</h3>
+              <p className="founder-role">Technology Lead</p>
             </div>
           </div>
         </section>

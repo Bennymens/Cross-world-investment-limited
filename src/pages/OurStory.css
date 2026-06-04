@@ -206,6 +206,12 @@
   top: 140px;
 }
 
+/* Nudge left column of the 'Built From...' panel left for alignment */
+.story-panel.row-media-right .col-left {
+  margin-left: -80px;
+  max-width: calc(100% + 80px);
+}
+
 /* Eyebrow text */
 .story-eyebrow {
   font-size: 14px;
@@ -230,6 +236,18 @@
 @media (min-width: 901px) {
   .story-heading {
     margin-left: -80px; /* Push headings left on desktop */
+    max-width: calc(100% + 80px);
+  }
+
+  /* Move the 'Built From What Plants Already Know' heading slightly right */
+  .story-panel.row-media-right .story-heading {
+    margin-left: 12px;
+    max-width: calc(100% - 12px);
+  }
+
+  /* Nudge left column of the 'Built From...' panel left for alignment */
+  .story-panel.row-media-right .col-left {
+    margin-left: -80px;
     max-width: calc(100% + 80px);
   }
 }
@@ -347,12 +365,8 @@
 .office-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(12, 35, 18, 0.65) 0%,
-    rgba(12, 35, 18, 0.3) 50%,
-    rgba(12, 35, 18, 0.65) 100%
-  );
+  background: none; /* removed green gradient overlay so image appears clear */
+  pointer-events: none;
   z-index: 1;
 }
 
