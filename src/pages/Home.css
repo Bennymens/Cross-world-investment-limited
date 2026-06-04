@@ -845,8 +845,8 @@
   /* Ensure row-media-right panels are left-aligned and fully visible on small screens */
   .story-panel.row-media-right .col-left {
     margin-left: 0 !important;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     align-items: flex-start;
     text-align: left;
     max-width: 100%;
