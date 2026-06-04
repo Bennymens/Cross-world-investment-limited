@@ -841,6 +841,27 @@
   .starch-image-display {
     max-height: 380px;
   }
+
+  /* Ensure row-media-right panels are left-aligned and fully visible on small screens */
+  .story-panel.row-media-right .col-left {
+    margin-left: 0 !important;
+    padding-left: 24px;
+    padding-right: 24px;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .story-panel.row-media-right .story-heading {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .story-panel.row-media-right .story-text {
+    margin-left: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 600px) {
@@ -862,6 +883,8 @@
   .starch-image-display {
     max-height: 280px;
   }
+
+  /* Mobile layout: keep left-aligned text to match the Fresher & Better panel */
 }
 
 /* ==========================================================================
