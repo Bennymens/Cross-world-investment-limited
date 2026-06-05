@@ -894,7 +894,7 @@
   position: relative;
   z-index: 3;
   background-color: var(--site-bg);
-  border-radius: 48px; /* Beautiful rounded corners all around! */
+  border-radius: 48px 48px 0 0; /* Only top corners rounded — bottom flush with footer */
   margin-top: -100px; /* Overlaps stats-section bottom */
   padding: 120px clamp(24px, 5vw, 80px) 140px;
   display: flex;

@@ -34,6 +34,7 @@ export default function OurStory() {
   const officeRef = useReveal(0.08);
   const futureRef = useReveal(0.08);
   const foundersRef = useReveal(0.08);
+  const managementRef = useReveal(0.08);
 
   return (
     <main className="story-page">
@@ -184,19 +185,46 @@ export default function OurStory() {
           <h2 className="founders-title">Founders</h2>
           <div className="founders-grid">
             <div className="founder-card">
-              <div className="founder-avatar initials-jr">JR</div>
-              <h3 className="founder-name">Founder</h3>
-              <p className="founder-role">Leadership Team</p>
+              <div className="founder-card-banner">
+                <span className="founder-card-text">Tony Assan, Founder</span>
+              </div>
             </div>
             <div className="founder-card">
-              <div className="founder-avatar initials-jd">JD</div>
-              <h3 className="founder-name">Co-Founder</h3>
-              <p className="founder-role">Operations Lead</p>
+              <div className="founder-card-banner">
+                <span className="founder-card-text">Name field, Co-Founder &amp; SVP Operations</span>
+              </div>
             </div>
             <div className="founder-card">
-              <div className="founder-avatar initials-lp">LP</div>
-              <h3 className="founder-name">Co-Founder</h3>
-              <p className="founder-role">Technology Lead</p>
+              <div className="founder-card-banner">
+                <span className="founder-card-text">Name field, Co-Founder &amp; SVP Technology</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Management */}
+        <section className="management-section" ref={managementRef}>
+          <h2 className="management-title">Management</h2>
+          <div className="management-grid">
+            <div className="management-card">
+              <div className="management-card-banner">
+                <span className="management-card-text">Name field, Chief Executive Officer</span>
+              </div>
+            </div>
+            <div className="management-card">
+              <div className="management-card-banner">
+                <span className="management-card-text">Name field, Chief Financial Officer</span>
+              </div>
+            </div>
+            <div className="management-card">
+              <div className="management-card-banner">
+                <span className="management-card-text">Name field, VP General Counsel</span>
+              </div>
+            </div>
+            <div className="management-card">
+              <div className="management-card-banner">
+                <span className="management-card-text">Name field, VP Commercial Operations</span>
+              </div>
             </div>
           </div>
         </section>

@@ -100,7 +100,6 @@ button {
 }
 
 /* Styling to allow secondary pages to behave as opaque cards that cover the sticky footer */
-.products-page,
 .faq-page,
 .contact-page {
   position: relative;
