@@ -318,38 +318,7 @@
   box-sizing: border-box;
 }
 
-.product-bg-blob {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  z-index: 0;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
 
-/* Blob Colors */
-.blob-color-0 {
-  background-color: rgba(55, 137, 145, 0.14);
-} /* Tealish */
-.blob-color-1 {
-  background-color: rgba(244, 193, 78, 0.16);
-} /* Yellowish */
-.blob-color-2 {
-  background-color: rgba(55, 137, 145, 0.2);
-} /* Deep Teal */
-.blob-color-3 {
-  background-color: rgba(241, 117, 63, 0.16);
-} /* Orangey */
-.blob-color-4 {
-  background-color: rgba(21, 71, 38, 0.12);
-} /* Greenish */
-
-.category-item.active .product-bg-blob {
-  transform: scale(1.08);
-}
-.category-item:hover .product-bg-blob {
-  transform: scale(1.04);
-}
 
 .product-img-element {
   position: relative;
@@ -463,7 +432,7 @@
 .products-content-scroll {
   position: relative;
   z-index: 4; /* Higher than sticky container to slide over it */
-  background-color: var(--site-bg);
+  background-color: #afc2bb;
   border-radius: 0; /* removed rounded corners for product ingredients section */
   box-shadow: 0 -20px 50px rgba(21, 71, 38, 0.06);
 }
@@ -476,7 +445,7 @@
   display: flex;
   flex-direction: column;
   gap: 160px;
-  background-color: var(--site-bg);
+  background-color: #afc2bb;
   border-radius: 0; /* removed rounded corners for product ingredients section */
 }
 
@@ -510,7 +479,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--green-teal);
+  color: var(--text-dark);
   margin-bottom: 16px;
   display: block;
 }
@@ -544,7 +513,7 @@
   font-size: 18px;
   font-weight: 550;
   line-height: 1.6;
-  color: var(--text-body);
+  color: var(--text-dark);
   margin-bottom: 24px;
   opacity: 0.95;
 }
@@ -553,93 +522,91 @@
   margin-bottom: 32px;
 }
 
-/* ===== SECTION 4: SAFETY BADGES (Dark Green Wrapper) ===== */
-.safety-badges-section {
-  background-color: var(--text-dark); /* #154726 */
-  padding: 120px clamp(24px, 5vw, 80px) 140px;
-  text-align: center;
-  color: var(--cream);
-  position: relative;
-  z-index: 3;
+/* Note style text for footnotes */
+.products-content-scroll .note-text {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
-.safety-container {
-  max-width: 1300px;
-  margin: 0 auto;
+/* Underline link styles */
+.products-content-scroll a.underline-link {
+  color: var(--text-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  font-weight: 700;
+  transition: opacity 0.25s ease;
+}
+
+.products-content-scroll a.underline-link:hover {
+  opacity: 0.8;
+}
+
+/* ===== SECTION 4: SAFETY BADGES ROW ===== */
+/* ===== SECTION 4: SAFETY SECTION BLOCK ===== */
+.products-content-scroll .safety-section-block {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   width: 100%;
 }
 
-.safety-title {
-  font-size: clamp(34px, 4.5vw, 52px);
+.products-content-scroll .safety-section-block.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.safety-section-heading {
+  font-size: clamp(34px, 4.5vw, 56px);
   font-weight: 800;
+  line-height: 1.05;
   letter-spacing: -0.025em;
-  color: var(--cream);
-  max-width: 900px;
-  margin: 0 auto;
-  line-height: 1.1;
-}
-
-.badges-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 24px;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+  white-space: nowrap; /* Forces title to be on a single line */
   width: 100%;
-  margin: 20px 0;
 }
 
-.badge-card {
+.safety-badges-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  opacity: 0.95;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin-top: 16px;
+  width: 100%;
 }
 
-.badge-icon-circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: rgba(250, 243, 230, 0.08);
-  border: 1.5px solid rgba(250, 243, 230, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--yellow);
-  transition:
-    background-color 0.35s ease,
-    border-color 0.35s ease,
-    transform 0.35s ease;
-  cursor: pointer;
+.safety-badge-img {
+  height: 140px; /* Bigger badges as requested */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.badge-card:hover .badge-icon-circle {
-  background-color: rgba(250, 243, 230, 0.15);
-  border-color: var(--yellow);
+.safety-badge-img:hover {
   transform: scale(1.08);
 }
 
-.badge-svg {
-  width: 40px;
-  height: 40px;
+.safety-description-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 32px;
 }
 
-.badge-label {
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: rgba(250, 243, 230, 0.9);
-  text-align: center;
-}
-
-.safety-text-description {
+.safety-description-text {
+  max-width: 480px;
   font-size: 16px;
+  font-weight: 500; /* not bold, clean */
   line-height: 1.6;
-  color: rgba(250, 243, 230, 0.6);
-  max-width: 600px;
-  margin: 20px auto 0;
+  color: var(--text-dark);
+  opacity: 0.95;
+  text-align: left;
 }
 
 /* ===== RESPONSIVE & MOBILE DESIGN ===== */
@@ -699,11 +666,6 @@
     height: 220px;
   }
 
-  .product-bg-blob {
-    width: 180px;
-    height: 180px;
-  }
-
   .product-name {
     font-size: 20px;
   }
@@ -723,6 +685,7 @@
     padding-top: 80px;
     padding-bottom: 80px;
     gap: 100px;
+    background-color: #afc2bb;
   }
 
   .products-content-scroll .story-panel {
@@ -734,29 +697,32 @@
     position: static;
   }
 
-  /* Safety badges grid wrapping */
-  .badges-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px 16px;
+  .safety-section-heading {
+    white-space: normal;
+    text-align: center;
   }
 
-  .badge-icon-circle {
-    width: 80px;
-    height: 80px;
+  /* Safety badges row centering on mobile */
+  .safety-badges-row {
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 
-  .badge-svg {
-    width: 34px;
-    height: 34px;
+  .safety-badge-img {
+    height: 90px; /* slightly smaller on mobile, but still bigger than before */
   }
 
-  .badge-label {
-    font-size: 12px;
+  .safety-description-row {
+    justify-content: center;
+    margin-top: 24px;
   }
 
-  .safety-badges-section {
-    padding-top: 80px;
-    padding-bottom: 90px;
+  .safety-description-text {
+    max-width: 100%;
+    text-align: center;
+    font-size: 15px;
   }
 }
 
@@ -767,28 +733,145 @@
     gap: 80px;
   }
 
-  /* Badges grid wraps to 2 columns on very small devices */
-  .badges-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px 12px;
+  .safety-badge-img {
+    height: 75px; /* even smaller on mobile devices */
+  }
+}
+
+/* ===== SECTION 6: PRODUCT BENEFITS ===== */
+.benefits-section {
+  background-color: var(--site-bg);
+  padding: 120px clamp(24px, 5vw, 80px) 140px;
+  position: relative;
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.benefits-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.benefits-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 4.5fr 5.5fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.benefits-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.benefits-small-image-wrapper {
+  width: 100%;
+  max-width: 290px;
+  height: 390px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(21, 71, 38, 0.08);
+}
+
+.benefits-small-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.benefits-small-img:hover {
+  transform: scale(1.05);
+}
+
+.benefits-heading {
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text-dark);
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.benefits-text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--text-dark);
+  opacity: 0.9;
+}
+
+.benefits-text.lead {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.65;
+  color: var(--text-dark);
+  opacity: 1;
+}
+
+.benefits-right-col {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(21, 71, 38, 0.1);
+  width: 100%;
+}
+
+.benefits-large-img {
+  width: 100%;
+  height: 920px;
+  max-height: none;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.benefits-large-img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsiveness for Benefits Section */
+@media (max-width: 900px) {
+  .benefits-section {
+    padding: 80px 24px;
   }
 
-  .badge-icon-circle {
-    width: 76px;
-    height: 76px;
+  .benefits-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
-  .badge-svg {
-    width: 32px;
-    height: 32px;
+  .benefits-small-image-wrapper {
+    max-width: 100%;
+    height: 320px;
   }
 
-  .badge-label {
-    font-size: 11px;
+  .benefits-large-img {
+    height: auto;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-section {
+    padding: 60px 16px;
   }
 
-  .safety-badges-section {
-    padding-top: 60px;
-    padding-bottom: 70px;
+  .benefits-container {
+    gap: 36px;
+  }
+
+  .benefits-small-image-wrapper {
+    height: 240px;
+  }
+
+  .benefits-large-img {
+    height: auto;
+    max-height: 350px;
   }
 }
