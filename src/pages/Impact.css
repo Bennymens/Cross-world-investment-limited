@@ -1,0 +1,858 @@
+/* ========== IMPACT PAGE ========== */
+
+.impact-page {
+  position: relative;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   HERO: sticky light-green background
+───────────────────────────────────────── */
+.impact-hero {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  background-color: #d9e8d4; /* Light sage green matching the Apeel screenshot */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Decorative blobs */
+.impact-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.impact-blob-tl {
+  width: clamp(200px, 25vw, 360px);
+  height: clamp(200px, 25vw, 360px);
+  background: #1e5c36; /* Dark green blob — top-left corner like screenshot */
+  top: -80px;
+  left: -80px;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.impact-blob-br {
+  width: clamp(160px, 20vw, 300px);
+  height: clamp(120px, 15vw, 220px);
+  background: #e8794a; /* Orange blob — bottom-right corner like screenshot */
+  bottom: -60px;
+  right: -60px;
+  border-radius: 50% 0 0 0;
+  opacity: 0.9;
+}
+
+/* Hero content */
+.impact-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 clamp(24px, 6vw, 120px);
+  max-width: 1100px;
+}
+
+.impact-hero-title {
+  font-size: clamp(48px, 7.5vw, 108px);
+  font-weight: 900;
+  line-height: 1.0;
+  color: #1a3d24;
+  letter-spacing: -0.035em;
+}
+
+.impact-title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.impact-hero.revealed .impact-title-line:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.impact-hero.revealed .impact-title-line:nth-child(2) {
+  transition-delay: 0.28s;
+}
+.impact-hero.revealed .impact-title-line {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll hint at the bottom of hero */
+.impact-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1a3d24;
+  opacity: 0;
+  animation: impactFadeIn 0.8s 1.4s forwards;
+  z-index: 2;
+}
+
+.impact-scroll-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.impact-scroll-arrow {
+  width: 20px;
+  height: 20px;
+  animation: impactBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes impactFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 0.75;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes impactBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ─────────────────────────────────────────
+   METRICS: Slides up over the hero
+   Full-bleed cassava background image
+───────────────────────────────────────── */
+.impact-metrics {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c2312; /* Dark green fallback */
+  margin-top: -100px; /* Slides up over the sticky hero */
+  border-radius: 48px 48px 0 0; /* Rounded top corners only */
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 120px clamp(24px, 5vw, 80px) 160px;
+  box-shadow: 0 -20px 60px rgba(12, 35, 18, 0.25);
+}
+
+/* Full-bleed background cassava image */
+.impact-metrics-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.55;
+  border-radius: inherit;
+}
+
+/* Dark gradient overlay for text readability */
+.impact-metrics-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 35, 18, 0.6) 0%,
+    rgba(12, 35, 18, 0.25) 45%,
+    rgba(12, 35, 18, 0.6) 100%
+  );
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Content inside metrics section */
+.impact-metrics-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  /* Slide-up reveal */
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.impact-metrics.revealed .impact-metrics-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.impact-metrics-heading {
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #faf3e6;
+  max-width: 700px;
+  text-align: left;
+}
+
+/* Stats grid */
+.impact-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+/* Each stat card slides up with stagger */
+.impact-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.impact-metrics.revealed .impact-stat-card:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+.impact-metrics.revealed .impact-stat-card:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+.impact-metrics.revealed .impact-stat-card:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+.impact-stat-number {
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 0.95;
+  color: #faf3e6;
+  display: block;
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  min-width: 4ch;
+}
+
+.impact-stat-label {
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(250, 243, 230, 0.82);
+  font-weight: 500;
+  max-width: 300px;
+}
+
+.impact-metrics-disclaimer {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(250, 243, 230, 0.55);
+  max-width: 440px;
+  text-align: left;
+  margin-top: -20px;
+}
+
+/* ─────────────────────────────────────────
+   CONTENT SCROLL: Cream panels slide over
+   the metrics image section
+───────────────────────────────────────── */
+.impact-content-scroll {
+  position: relative;
+  z-index: 4;
+  background-color: var(--site-bg);
+  border-radius: 48px 48px 0 0;
+  margin-top: -100px; /* Slides up over the cassava metrics image */
+  padding: 120px clamp(24px, 5vw, 80px) 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+  box-shadow: 0 -20px 60px rgba(21, 71, 38, 0.08);
+}
+
+/* Inner container keeps panels max-width centered */
+.impact-panels-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+}
+
+/* Panel layout */
+.impact-panel {
+  display: grid;
+  grid-template-columns: 4.5fr 5.5fr;
+  gap: 80px;
+  align-items: flex-start;
+  width: 100%;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.impact-panel.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.impact-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.impact-panel.row-text-right .col-left {
+  position: sticky;
+  top: 140px;
+}
+
+.impact-panel-heading {
+  font-size: clamp(38px, 4.5vw, 58px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+@media (min-width: 901px) {
+  .impact-panel-heading {
+    margin-left: -80px;
+    max-width: calc(100% + 80px);
+  }
+}
+
+.impact-panel-text {
+  font-size: 18.5px;
+  font-weight: 550;
+  line-height: 1.55;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.impact-panel-text:last-child {
+  margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .impact-hero-title {
+    font-size: clamp(36px, 9vw, 60px);
+  }
+
+  .impact-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .impact-panel {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .impact-panel.row-text-right .col-left {
+    position: static;
+  }
+
+  .impact-panel-heading {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .impact-metrics {
+    padding: 80px 24px 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .impact-hero-title {
+    font-size: 36px;
+  }
+
+  .impact-stat-number {
+    font-size: 54px;
+  }
+
+  .impact-content-scroll {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    gap: 80px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   SUPPLY CHAIN: Food waste adds up
+   Recreated exactly to match the Apeel screenshot
+───────────────────────────────────────── */
+.chain-section {
+  background-color: #0c2312; /* Rich dark forest green matching screenshot background */
+  padding: 120px clamp(24px, 5vw, 80px) 140px;
+  position: relative;
+  z-index: 5; /* Must be above sticky hero (2), metrics (3), and content-scroll (4) */
+  overflow: hidden;
+
+  /* Slide-up reveal */
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.chain-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Wavy background graphics representing fruit flows */
+.chain-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 90% 70% at 15% 85%, rgba(26, 79, 44, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 85% 15%, rgba(20, 61, 34, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header row */
+.chain-header {
+  max-width: 1300px;
+  margin: 0 auto 80px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.chain-heading {
+  font-size: clamp(48px, 6.5vw, 80px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: #faf3e6;
+}
+
+/* Custom highlight pill for "adds up" matching the screenshot */
+.chain-title-pill {
+  display: inline-block;
+  background-color: #1f4f2c; /* Lighter medium-dark green pill */
+  color: #faf3e6;
+  padding: 4px 24px 10px;
+  border-radius: 9999px;
+  transform: rotate(-1.5deg);
+  margin-left: -4px;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chain-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(250, 243, 230, 0.8);
+  font-weight: 550;
+  max-width: 580px;
+}
+
+/* Columns row */
+.chain-columns {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual column — badge sits directly under its card */
+.chain-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0; /* No gap — badge is flush directly under card */
+  position: relative;
+
+  /* Initial hidden state for staggered reveal */
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Main card inside column */
+.chain-main-card {
+  border-radius: 24px; /* Full rounded corners */
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.chain-main-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Staggered Heights for stair-step effect — columns 1-4 get different card heights */
+.chain-column:nth-child(1) .chain-main-card { height: 380px; }
+.chain-column:nth-child(2) .chain-main-card { height: 310px; }
+.chain-column:nth-child(3) .chain-main-card { height: 260px; }
+.chain-column:nth-child(4) .chain-main-card { height: 230px; }
+.chain-column:nth-child(5) .chain-main-card { min-height: 230px; }
+
+/* Card colors variants */
+.chain-card--yellow {
+  background-color: #ffd358; /* Premium warm honey yellow */
+  color: #0c2312;
+}
+.chain-card--orange {
+  background-color: #e26b38; /* Vibrant terracotta orange */
+  color: #faf3e6;
+}
+.chain-card--cream {
+  background-color: #faf3e6; /* Soft cream beige */
+  color: #0c2312;
+}
+.chain-card--light-green {
+  background-color: #7bbd74; /* Soft sage/fresh green */
+  color: #faf3e6;
+}
+.chain-card--dark-green {
+  background-color: #1e5c36; /* Leaf green */
+  color: #faf3e6;
+}
+
+/* Card top layout */
+.chain-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chain-icon {
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.5;
+}
+
+.chain-card--yellow .chain-icon { color: #0c2312; }
+.chain-card--orange .chain-icon { color: #faf3e6; }
+.chain-card--cream .chain-icon { color: #0c2312; }
+.chain-card--light-green .chain-icon { color: #faf3e6; }
+.chain-card--dark-green .chain-icon { color: #faf3e6; }
+
+.chain-card-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Big counting number styling */
+.chain-card-number {
+  margin-top: auto;
+}
+
+.chain-card-number .impact-stat-number {
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.chain-card--yellow .impact-stat-number { color: #0c2312; }
+.chain-card--orange .impact-stat-number { color: #faf3e6; }
+.chain-card--cream .impact-stat-number { color: #0c2312; }
+.chain-card--light-green .impact-stat-number { color: #faf3e6; }
+.chain-card--dark-green .impact-stat-number { color: #faf3e6; }
+
+.chain-card-sublabel {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  opacity: 0.9;
+}
+
+/* Rectangular badge with rounded edges — sits just below its card with a small gap */
+.chain-waste-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 20px;
+  border-radius: 16px; /* All corners rounded — rectangle with rounded edges */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px; /* Small breathing space between card and badge */
+}
+
+.chain-waste-badge svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.0;
+}
+
+/* Badge solid background colors — match their card's color family */
+.chain-badge--yellow {
+  background: rgba(200, 158, 30, 0.45);
+  color: #0c2312;
+  border: none;
+}
+.chain-badge--yellow:hover {
+  background: rgba(200, 158, 30, 0.6);
+}
+
+.chain-badge--orange {
+  background: rgba(160, 72, 28, 0.5);
+  color: #faf3e6;
+  border: none;
+}
+.chain-badge--orange:hover {
+  background: rgba(160, 72, 28, 0.65);
+}
+
+.chain-badge--cream {
+  background: rgba(200, 185, 160, 0.35);
+  color: #0c2312;
+  border: none;
+}
+.chain-badge--cream:hover {
+  background: rgba(200, 185, 160, 0.5);
+}
+
+.chain-badge--light-green {
+  background: rgba(80, 150, 74, 0.45);
+  color: #faf3e6;
+  border: none;
+}
+.chain-badge--light-green:hover {
+  background: rgba(80, 150, 74, 0.6);
+}
+
+.chain-badge--dark-green {
+  background: rgba(30, 92, 54, 0.6);
+  color: #ffd358;
+  border: 2px solid rgba(255, 211, 88, 0.55);
+}
+.chain-badge--dark-green:hover {
+  background: rgba(30, 92, 54, 0.8);
+  border-color: rgba(255, 211, 88, 0.85);
+}
+
+/* Total summary column (Column 5) */
+.chain-total-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px; /* Push the circle lower under the card */
+  gap: 12px;
+}
+
+.chain-total-icon {
+  width: 24px;
+  height: 24px;
+  color: #ffd358;
+}
+
+.chain-total-label {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #faf3e6; /* White-cream — clearly visible on dark green background */
+  opacity: 0.9;
+}
+
+/* Total waste circle matching screenshot */
+.chain-total-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #ffd358;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(255, 211, 88, 0.2);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.chain-total-circle:hover {
+  transform: scale(1.05);
+}
+
+.chain-total-circle-num {
+  font-size: 44px;
+  font-weight: 900;
+  color: #0c2312;
+  line-height: 1.0;
+}
+
+.chain-total-circle-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0c2312;
+  margin-top: 2px;
+}
+
+/* Footnote */
+.chain-footnote {
+  max-width: 1300px;
+  margin: 64px auto 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(250, 243, 230, 0.45);
+  position: relative;
+  z-index: 1;
+}
+
+/* Staggered transition delays for revealing */
+.chain-section.revealed .chain-column:nth-child(1) { opacity: 1; transform: translateY(0); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s; }
+.chain-section.revealed .chain-column:nth-child(2) { opacity: 1; transform: translateY(0); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; }
+.chain-section.revealed .chain-column:nth-child(3) { opacity: 1; transform: translateY(0); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s; }
+.chain-section.revealed .chain-column:nth-child(4) { opacity: 1; transform: translateY(0); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s; }
+.chain-section.revealed .chain-column:nth-child(5) { opacity: 1; transform: translateY(0); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s; }
+
+/* ─── Responsive ─── */
+@media (max-width: 1100px) {
+  .chain-columns {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .chain-column {
+    min-height: unset;
+    height: auto;
+    gap: 0; /* Keep gap 0 so badge stays flush under card */
+  }
+
+  .chain-main-card {
+    height: auto !important;
+    min-height: 200px;
+    border-radius: 24px; /* Full rounded corners at all sizes */
+  }
+
+  .chain-column:nth-child(5) {
+    grid-column: span 3;
+    align-items: center;
+  }
+
+  .chain-total-summary {
+    margin-top: 16px;
+    flex-direction: row;
+    gap: 20px;
+    background: rgba(255, 211, 88, 0.05);
+    padding: 16px 32px;
+    border-radius: 9999px;
+    border: 1px dashed rgba(255, 211, 88, 0.2);
+  }
+
+  .chain-total-circle {
+    width: 80px;
+    height: 80px;
+    box-shadow: none;
+  }
+
+  .chain-total-circle-num {
+    font-size: 28px;
+  }
+
+  .chain-total-circle-text {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chain-header {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  .chain-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chain-column:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .chain-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .chain-column:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .chain-total-summary {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .chain-total-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .chain-total-circle-num {
+    font-size: 38px;
+  }
+
+  .chain-total-circle-text {
+    font-size: 12px;
+  }
+}

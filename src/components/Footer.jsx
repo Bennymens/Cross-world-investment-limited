@@ -6,15 +6,13 @@ const navPrimaryLinks = [
   { to: "/our-story", label: "Our Story" },
   { to: "/products", label: "Products" },
   { to: "/impact", label: "Impact" },
-  { to: "/news", label: "Media" },
   { to: "/faq", label: "FAQs" },
-  { to: "/news-center", label: "News Center" },
-  { href: "https://apeel.substack.com/", label: "Subscribe" },
+  { to: "/contact", label: "Contact Us" },
 ];
 
 const navSecondaryLinks = [
-  { to: "/careers", label: "Careers" },
-  { to: "/contact", label: "Contact Us" },
+  { to: "/our-story", label: "Our Story" },
+  { to: "/products", label: "Products" },
 ];
 
 const legalLinks = [
@@ -30,32 +28,22 @@ const legalLinks = [
 
 const socialLinks = [
   {
-    href: "https://www.youtube.com/c/ApeelSciences",
-    label: "YouTube",
-    icon: "youtube",
-  },
-  {
-    href: "https://twitter.com/apeelsciences",
-    label: "Twitter",
-    icon: "twitter",
-  },
-  {
-    href: "https://www.pinterest.com/apeelsciences/",
-    label: "Pinterest",
-    icon: "pinterest",
-  },
-  {
-    href: "https://www.instagram.com/apeel_sciences",
-    label: "Instagram",
-    icon: "instagram",
-  },
-  {
-    href: "https://www.linkedin.com/company/apeel",
+    href: "https://www.linkedin.com",
     label: "LinkedIn",
     icon: "linkedin",
   },
   {
-    href: "https://www.facebook.com/Apeel/",
+    href: "https://twitter.com",
+    label: "Twitter",
+    icon: "twitter",
+  },
+  {
+    href: "https://www.instagram.com",
+    label: "Instagram",
+    icon: "instagram",
+  },
+  {
+    href: "https://www.facebook.com",
     label: "Facebook",
     icon: "facebook",
   },
@@ -141,7 +129,7 @@ export default function Footer() {
       <div className="footer-inner">
         {/* Column 1: Title & Logo */}
         <div className="footer-column footer-col-left">
-          <div className="footer-title">Stay fresh.</div>
+          <div className="footer-title">Sustainable Agro-Processing.</div>
           <div className="footer-bottom-section footer-logo-container">
             <Link to="/" className="footer-logo-link">
               <img src={Logo} alt="Cross World Logo" className="footer-logo-icon" />

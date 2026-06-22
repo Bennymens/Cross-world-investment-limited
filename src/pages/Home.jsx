@@ -28,44 +28,6 @@ function useReveal(threshold = 0.15) {
   return ref;
 }
 
-/* Animated counter */
-function AnimatedNumber({ value, suffix = "", duration = 1800 }) {
-  const ref = useRef(null);
-  const triggered = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting && !triggered.current) {
-          triggered.current = true;
-          const end = parseFloat(value);
-          const isDecimal = value.toString().includes(".");
-          const startTime = performance.now();
-          const animate = (now) => {
-            const progress = Math.min((now - startTime) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = end * eased;
-            el.textContent =
-              (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
-            if (progress < 1) requestAnimationFrame(animate);
-          };
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.3 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [value, suffix, duration]);
-
-  return (
-    <span ref={ref} className="stat-number">
-      0{suffix}
-    </span>
-  );
-}
 
 export default function Home() {
   const heroRef = useReveal(0.05);
@@ -85,9 +47,9 @@ export default function Home() {
         </div>
         <div className="hero-content">
           <h1 className="hero-title">
-            <span className="title-line">Plant-Based</span>
-            <span className="title-line">Protection</span>
-            <span className="title-line title-accent">Inspired by Nature</span>
+            <span className="title-line">Industrial Cassava</span>
+            <span className="title-line">Starch Processing</span>
+            <span className="title-line title-accent">Rooted in Ghana</span>
           </h1>
           <div className="scroll-cta">
             <span className="scroll-label">Scroll</span>
@@ -218,33 +180,30 @@ export default function Home() {
         <div className="stats-overlay" />
         <div className="stats-content-wrapper">
           <h2 className="stats-main-heading">
-            Our sustainability impact since 2021
+            Our Planned Farming and Processing Scale
           </h2>
           <div className="stats-grid">
             <div className="stat-card">
-              <AnimatedNumber value={166} suffix="M" />
+              <span className="stat-number">5000+</span>
               <p className="stat-label">
-                pieces of fruit prevented from waste.
+                acres of high-starch cassava under cultivation.
               </p>
             </div>
             <div className="stat-card">
-              <AnimatedNumber value={29.1} suffix="K" />
+              <span className="stat-number">9000 MT</span>
               <p className="stat-label">
-                metric tons CO₂-eq of greenhouse gas emissions avoided, the
-                equivalent of planting 485,000 trees.
+                annual processing capacity of premium grade starch.
               </p>
             </div>
             <div className="stat-card">
-              <AnimatedNumber value={7.0} suffix="B" />
+              <span className="stat-number">60+</span>
               <p className="stat-label">
-                liters of water conserved, enough to fill 2,800 Olympic-sized
-                swimming pools.
+                trained local personnel employed in factory and farm operations.
               </p>
             </div>
           </div>
           <p className="stats-disclaimer">
-            * Calculated using Life Cycle Analysis methodology that has been
-            third party verified as being compliant with ISO 14044 standards.
+            * Projected outcomes based on fully mechanized agricultural models, site plans, and off-take contracts.
           </p>
         </div>
       </section>

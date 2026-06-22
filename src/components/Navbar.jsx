@@ -73,11 +73,11 @@ export default function Navbar() {
             {/* Right Navigation */}
             <div className="right">
               <div className="item">
-                <NavLink to="/news" className="link-main relative">
+                <NavLink to="/contact" className="link-main relative">
                   <div className="content relative">
                     <div className="inner">
                       <div className="hover-underlinee">
-                        <div className="label">Newsroom</div>
+                        <div className="label">Contact</div>
                         <div className="line"></div>
                       </div>
                     </div>
@@ -125,8 +125,8 @@ export default function Navbar() {
           <NavLink to="/impact" onClick={() => setMenuOpen(false)}>
             Impact
           </NavLink>
-          <NavLink to="/news" onClick={() => setMenuOpen(false)}>
-            Newsroom
+          <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
+            Contact
           </NavLink>
           <NavLink to="/faq" onClick={() => setMenuOpen(false)}>
             FAQ

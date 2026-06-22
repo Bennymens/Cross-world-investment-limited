@@ -477,19 +477,32 @@
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
-  min-height: 72px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 84px;
   text-align: left;
+  gap: 4px;
 }
 
 .founder-card-text,
 .management-card-text {
   color: var(--site-bg);
   font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.35;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.01em;
+}
+
+.founder-card-subtext,
+.management-card-subtext {
+  color: var(--yellow);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+  opacity: 0.95;
 }
 
 /* ===== RESPONSIVE ===== */

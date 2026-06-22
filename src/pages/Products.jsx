@@ -3,7 +3,7 @@ import "./Products.css";
 
 import farmImg from "../assets/farm-aerial.png";
 import cassavaImg from "../assets/Cassava.png";
-import limeImg from "../assets/lime-slice.png";
+import cassavaBg from "../assets/cassava 1.webp";
 
 import chemicalFreeBadge from "../assets/Chemical free.png";
 import ecoFriendlyBadge from "../assets/Eco Friendly.png";
@@ -91,11 +91,9 @@ export default function Products() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const productsData = [
-    { name: "Cassava Roots", img: cassavaImg },
-    { name: "Food Starch", img: limeImg },
+    { name: "Premium Cassava Roots", img: cassavaImg },
+    { name: "Food Grade Starch", img: null },
     { name: "Industrial Starch", img: null },
-    { name: "Decentralized Units", img: null },
-    { name: "Organic Silage", img: null },
   ];
 
   useEffect(() => {
@@ -187,7 +185,7 @@ export default function Products() {
         <div className="hero-content">
           <h1 className="hero-title">
             <span className="title-line">Redefining Quality</span>
-            <span className="title-line">Rooted in Science</span>
+            <span className="title-line">Rooted in Ghana</span>
             <span className="title-line title-accent">Driven by Purity</span>
           </h1>
           <div className="scroll-cta">
@@ -236,30 +234,27 @@ export default function Products() {
       <div className="products-content-scroll light-blue-bg">
         <section className="story-panels-container">
           
-          {/* Section 3: Our Product Ingredients */}
+          {/* Section 3: Product Properties */}
           <div className="story-panel row-text-right" ref={ingredientsRef}>
             <div className="story-col col-left">
-              <h2 className="story-heading">Our Product Ingredients</h2>
+              <h2 className="story-heading">Starch Properties &amp; Standards</h2>
             </div>
             <div className="story-col col-right">
               <p className="story-text">
-                Our product for conventional produce, <strong>Edipeel</strong>, is made of <strong>plant-based mono- and diglycerides</strong>.
+                Our starch is <strong>100% natural, native, and chemical-free</strong>. Our extraction process is completely mechanical, using clean water to wash, peel, rasp, and separate starch granules from the root fibers.
               </p>
               <p className="story-text">
-                Our product for organic produce, <strong>Organipeel,*</strong> is made of <strong>citric acid, baking soda, and plant-based mono- and diglycerides</strong>.
-              </p>
-              <p className="story-text note-text">
-                * NOTE: As we're developing new products that are more tailored to organic producers' operations and evolving needs, <a href="#organipeel" className="underline-link">Organipeel has not been commercially available or used for over 2 years.</a>
+                Because we preserve the natural properties of the crop, our premium cassava starch offers excellent <strong>natural paste clarity, high paste viscosity, and superior freeze-thaw stability</strong>.
               </p>
               <p className="story-text">
-                And mono- and diglycerides are nothing more than purified, naturally occurring simple fats.
+                Naturally gluten-free and neutral in taste, it provides a superior clean-label binder, thickener, and texturizer suitable for food products and industrial applications alike.
               </p>
             </div>
           </div>
 
           {/* Section 4: Safety & Purity */}
           <div className="safety-section-block" ref={safetyRef}>
-            <h2 className="safety-section-heading">Safety and purity are our priorities.</h2>
+            <h2 className="safety-section-heading">Strict Quality &amp; Process Controls</h2>
             <div className="safety-badges-row">
               <img src={chemicalFreeBadge} alt="Chemical Free" className="safety-badge-img" />
               <img src={ecoFriendlyBadge} alt="Eco Friendly" className="safety-badge-img" />
@@ -268,7 +263,7 @@ export default function Products() {
             </div>
             <div className="safety-description-row">
               <p className="safety-description-text">
-                The safety and purity of our products are our top priority. That's why Apeel is made with food grade ingredients safe for human consumption—verified and tested for your peace of mind.
+                We maintain rigorous standards of hygiene and quality control. With an onsite laboratory testing density, moisture, ash content, and pH, we guarantee consistent premium quality. We are working toward ISO and Ghana Standards Authority certifications within our first two years of operations.
               </p>
             </div>
           </div>
@@ -277,27 +272,21 @@ export default function Products() {
           <div className="story-panel row-text-right" ref={compareRef}>
             <div className="story-col col-left">
               <h2 className="story-heading">
-                How do we compare to other post-harvest treatments on produce today?
+                How does Cassava Starch compare in the global market?
               </h2>
             </div>
             <div className="story-col col-right">
               <p className="story-text">
-                Traditional waxes (made from polyethylene, paraffins, shellac, carnauba wax, beeswax, and other ingredients) have been widely used for decades, mainly for the purposes of adding shine in response to supermarket and consumer preferences for glossy, attractive produce.
+                Compared to potato, wheat, or corn starches, cassava is a relatively cheap source of raw material that delivers matching or superior binding and thickening properties.
               </p>
               <p className="story-text">
-                Some of these industry standard ingredients are animal-based (e.g., beeswax and shellac) or petroleum-derived (e.g., polyethylene, paraffins, etc.).
+                Standard industrial starches often undergo heavy chemical modification to achieve stability. Our cassava starch achieves high freeze-thaw stability and clarity naturally, without synthetic additives.
               </p>
               <p className="story-text">
-                And the extra sad part is they aren't very effective at helping produce stay fresher for much longer.
+                Most importantly, our business model relies on our own <strong>5,000-acre farm</strong> to supply the raw cassava roots, avoiding the raw material shortages that plague competitors who rely solely on third-party out-growers.
               </p>
               <p className="story-text">
-                We believe we all deserve better. That's why we use food to actually protect food.
-              </p>
-              <p className="story-text">
-                The ingredients in Apeel formulations are plant-based, responsibly sourced, non-GMO, free of regulated allergens, and free of trans fats. These ingredients are naturally found in the peels, pulp, and seeds of plants we already eat, and are common existing food ingredients that have been widely used in everyday foods in the U.S., Europe, and worldwide for decades.
-              </p>
-              <p className="story-text">
-                For more information, see <a href="#dieticians" className="underline-link">what Registered Dieticians have to say.</a>
+                For more details on our business case and financials, see our <a href="/business-plan" className="underline-link">Investor Business Plan.</a>
               </p>
             </div>
           </div>
@@ -312,12 +301,12 @@ export default function Products() {
             <div className="benefits-small-image-wrapper">
               <img src={cassava1} alt="Fresh cassava crop close-up" className="benefits-small-img" />
             </div>
-            <h2 className="benefits-heading">Product Benefits</h2>
+            <h2 className="benefits-heading">Operational Advantages</h2>
             <p className="benefits-text lead">
-              Cross World products are applied to the surface of fresh cassava roots and products to create a thin, edible barrier – reinforcing the existing natural peel – to slow water loss and oxidation. This helps to keep produce fresher for longer – retaining taste, texture, and nutrients for longer, giving everyone more time to get produce to more people, while reducing waste and saving money and resources along the way.
+              By locating our processing factory in the same area as our farm in Obiri, Central Region, we process tubers immediately after harvesting. This is critical because fresh cassava roots begin to spoil within 24 to 48 hours of harvest.
             </p>
             <p className="benefits-text">
-              Our products replace traditional wax coatings and chemical preservatives, offering a completely natural, invisible defense that keeps moisture in and oxygen out. By mimicking nature's own protective barriers, we extend produce freshness without adding synthetic substances.
+              Immediate mechanical refining preserves the high starch content, yielding a brighter, higher-purity native starch. Our closed-loop water treatment system purifies and recycles up to 90% of extraction water, keeping operations highly sustainable and eco-friendly.
             </p>
           </div>
           <div className="benefits-right-col">

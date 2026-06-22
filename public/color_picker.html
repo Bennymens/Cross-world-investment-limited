@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Picker</title>
+</head>
+<body>
+  <h3>Desktop Mockup Color Audit</h3>
+  <canvas id="canvas" style="display: block; max-width: 100%; border: 1px solid #ccc;"></canvas>
+  <div id="results" style="font-family: monospace; font-size: 16px; white-space: pre; margin-top: 20px; background: #eee; padding: 10px;">Analyzing...</div>
+  <script>
+    const img = new Image();
+    img.src = '/mockup_desktop.png';
+    img.onload = () => {
+      const canvas = document.getElementById('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      
+      const bgPixel = ctx.getImageData(50, 50, 1, 1).data;
+      const bgHex = rgbToHex(bgPixel[0], bgPixel[1], bgPixel[2]);
+      
+      let html = 'Desktop Mockup:\nBackground: ' + bgHex + '\n';
+      
+      const imgMobile = new Image();
+      imgMobile.src = '/mockup_mobile.png';
+      imgMobile.onload = () => {
+        const canvas2 = document.createElement('canvas');
+        canvas2.width = imgMobile.width;
+        canvas2.height = imgMobile.height;
+        const ctx2 = canvas2.getContext('2d');
+        ctx2.drawImage(imgMobile, 0, 0);
+        
+        const mBgPixel = ctx2.getImageData(50, 50, 1, 1).data;
+        const mBgHex = rgbToHex(mBgPixel[0], mBgPixel[1], mBgPixel[2]);
+        
+        html += '\nMobile Mockup:\nBackground: ' + mBgHex + '\n';
+        
+        // Scan desktop dominant colors
+        const colorCounts = {};
+        const imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+        for (let i = 0; i < imageData.length; i += 16) {
+          const r = imageData[i];
+          const g = imageData[i+1];
+          const b = imageData[i+2];
+          colorCounts[rgbToHex(r, g, b)] = (colorCounts[rgbToHex(r, g, b)] || 0) + 1;
+        }
+        
+        const sortedColors = Object.entries(colorCounts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 20);
+          
+        html += '\nDesktop Dominant colors:\n';
+        sortedColors.forEach(([color, count]) => {
+          html += `${color} (count: ${count})\n`;
+        });
+        
+        document.getElementById('results').innerText = html;
+      };
+    };
+      
+      // Sample colors from coordinate grid
+      // Let's sample along columns to find card background, text, badge background, badge text
+      // We can also print coordinates on canvas click
+      canvas.addEventListener('click', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const x = Math.floor((e.clientX - rect.left) * scaleX);
+        const y = Math.floor((e.clientY - rect.top) * scaleY);
+        const pixel = ctx.getImageData(x, y, 1, 1).data;
+        const hex = rgbToHex(pixel[0], pixel[1], pixel[2]);
+        console.log(`Clicked at ${x}, ${y}: ${hex}`);
+        alert(`x: ${x}, y: ${y}, hex: ${hex}`);
+      });
+
+      // Let's do auto-sampling of specific areas:
+      // Let's scan a grid to find major colors:
+      const colorCounts = {};
+      const imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+      for (let i = 0; i < imageData.length; i += 16) {
+        const r = imageData[i];
+        const g = imageData[i+1];
+        const b = imageData[i+2];
+        const a = imageData[i+3];
+        if (a < 255) continue;
+        const hex = rgbToHex(r, g, b);
+        colorCounts[hex] = (colorCounts[hex] || 0) + 1;
+      }
+      
+      const sortedColors = Object.entries(colorCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 40);
+        
+      html += '\nDominant colors in mockup:\n';
+      sortedColors.forEach(([color, count]) => {
+        html += `${color} (count: ${count})\n`;
+      });
+      
+      document.getElementById('results').innerText = html;
+    };
+    
+    function rgbToHex(r, g, b) {
+      return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    }
+  </script>
+</body>
+</html>

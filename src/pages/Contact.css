@@ -1,0 +1,227 @@
+.contact-page {
+  padding: 160px 24px 120px;
+  background-color: var(--site-bg);
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Info Panel Styling */
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact-eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--green-teal);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.contact-title {
+  font-size: clamp(38px, 5vw, 56px);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.contact-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.detail-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.detail-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--cream-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-dark);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover .detail-icon {
+  background-color: var(--green-teal);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.detail-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.detail-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--green-teal);
+  margin-bottom: 4px;
+}
+
+.detail-link {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  transition: color 0.25s ease;
+}
+
+.detail-link:hover {
+  color: var(--green-teal);
+}
+
+.detail-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+/* Form Panel Styling */
+.contact-form-panel {
+  background: #ffffff;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(21, 71, 38, 0.04);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 550;
+  color: var(--text-dark);
+  background: var(--site-bg);
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: var(--text-body);
+  opacity: 0.45;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--green-teal);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(55, 137, 145, 0.1);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--text-dark);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  background-color: var(--green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(19, 90, 96, 0.25);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .contact-form-panel {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding-top: 120px;
+  }
+  
+  .contact-description {
+    margin-bottom: 30px;
+  }
+}
