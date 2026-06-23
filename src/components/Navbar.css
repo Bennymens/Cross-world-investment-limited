@@ -114,11 +114,49 @@
   align-items: center;
 }
 
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
 .center .logo-svg {
-  height: 100px;
+  height: 52px; /* Adjusted down from 100px to align nicely with text */
   width: auto;
   display: block;
   color: inherit;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-logo-link:hover .logo-svg {
+  transform: scale(1.06);
+}
+
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.navbar-logo-brand {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: rgb(21, 71, 38);
+  font-family: var(--sans);
+}
+
+.navbar-logo-sub {
+  font-size: 8.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: rgb(21, 71, 38);
+  opacity: 0.85;
+  font-family: var(--sans);
 }
 
 /* ===== HAMBURGER (mobile only) ===== */
@@ -223,5 +261,21 @@
 
   .hamburger {
     display: flex; /* Show mobile hamburger icon */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo-brand {
+    font-size: 16px;
+  }
+  .navbar-logo-sub {
+    font-size: 7.5px;
+    letter-spacing: 0.8px;
+  }
+  .center .logo-svg {
+    height: 40px;
+  }
+  .navbar-logo-link {
+    gap: 8px;
   }
 }

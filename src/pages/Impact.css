@@ -6,7 +6,7 @@
 }
 
 /* ─────────────────────────────────────────
-   HERO: sticky light-green background
+   HERO: sticky section with background image
 ───────────────────────────────────────── */
 .impact-hero {
   position: sticky;
@@ -14,7 +14,7 @@
   width: 100%;
   height: 100vh;
   min-height: 600px;
-  background-color: #d9e8d4; /* Light sage green matching the Apeel screenshot */
+  background-color: #0c2312; /* Dark green fallback */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,31 +23,29 @@
   box-sizing: border-box;
 }
 
-/* Decorative blobs */
-.impact-blob {
+/* Full-bleed background hero image */
+.impact-hero-bg {
   position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
+  inset: 0;
+  z-index: 0;
 }
 
-.impact-blob-tl {
-  width: clamp(200px, 25vw, 360px);
-  height: clamp(200px, 25vw, 360px);
-  background: #1e5c36; /* Dark green blob — top-left corner like screenshot */
-  top: -80px;
-  left: -80px;
-  border-radius: 50%;
-  opacity: 0.9;
+.impact-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.impact-blob-br {
-  width: clamp(160px, 20vw, 300px);
-  height: clamp(120px, 15vw, 220px);
-  background: #e8794a; /* Orange blob — bottom-right corner like screenshot */
-  bottom: -60px;
-  right: -60px;
-  border-radius: 50% 0 0 0;
-  opacity: 0.9;
+.impact-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 71, 38, 0.4) 0%,
+    rgba(21, 71, 38, 0.2) 50%,
+    rgba(12, 35, 18, 0.6) 100%
+  );
 }
 
 /* Hero content */
@@ -63,8 +61,9 @@
   font-size: clamp(48px, 7.5vw, 108px);
   font-weight: 900;
   line-height: 1.0;
-  color: #1a3d24;
+  color: #faf3e6;
   letter-spacing: -0.035em;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .impact-title-line {
@@ -96,7 +95,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #1a3d24;
+  color: #faf3e6;
   opacity: 0;
   animation: impactFadeIn 0.8s 1.4s forwards;
   z-index: 2;
@@ -362,6 +361,78 @@
   margin-bottom: 0;
 }
 
+/* ----- Media Row Styling (Consistent with Our Story) ----- */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.impact-image-container {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(21, 71, 38, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.impact-detail-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.impact-image-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(21, 71, 38, 0.15);
+}
+
+.impact-image-container:hover .impact-detail-img {
+  transform: scale(1.03);
+}
+
+@media (min-width: 901px) {
+  /* Nudge left column of the media panel left for alignment */
+  .impact-panel.row-media-right .col-left {
+    margin-left: -80px;
+    max-width: calc(100% + 80px);
+  }
+
+  /* Move the heading inside media panel slightly right */
+  .impact-panel.row-media-right .impact-panel-heading {
+    margin-left: 12px;
+    max-width: calc(100% - 12px);
+  }
+}
+
+@media (max-width: 900px) {
+  .impact-panel.row-media-right .col-left {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100% !important;
+  }
+
+  .impact-panel.row-media-right .impact-panel-heading {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .impact-panel.row-media-right .impact-panel-text {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 /* ─────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────── */
@@ -499,13 +570,11 @@
   z-index: 1;
 }
 
-/* Individual column — badge sits directly under its card */
+/* Individual column — card-top is absolute inside, overlaid on card */
 .chain-column {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 0; /* No gap — badge is flush directly under card */
-  position: relative;
 
   /* Initial hidden state for staggered reveal */
   opacity: 0;
@@ -515,14 +584,42 @@
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Main card inside column */
+/* Set total column height so card fills it and card-top overlays on top */
+.chain-column:nth-child(1) { height: 380px; }
+.chain-column:nth-child(2) { height: 310px; }
+.chain-column:nth-child(3) { height: 260px; }
+.chain-column:nth-child(4) { height: 230px; }
+.chain-column:nth-child(5) { min-height: 230px; }
+
+/* card-top: absolutely positioned inside the column, on top of the card */
+.chain-card-top {
+  position: absolute;
+  top: 28px;
+  left: 24px;
+  right: 24px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+/* Icon + label colors per column (since card-top is no longer inside the colored card) */
+.chain-column:nth-child(1) .chain-card-top { color: #0c2312; }
+.chain-column:nth-child(2) .chain-card-top { color: #faf3e6; }
+.chain-column:nth-child(3) .chain-card-top { color: #0c2312; }
+.chain-column:nth-child(4) .chain-card-top { color: #faf3e6; }
+.chain-column:nth-child(5) .chain-card-top { color: #faf3e6; }
+
+/* Main card fills the entire column height */
 .chain-main-card {
-  border-radius: 24px; /* Full rounded corners */
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: flex-end;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
   box-sizing: border-box;
@@ -532,13 +629,6 @@
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
-
-/* Staggered Heights for stair-step effect — columns 1-4 get different card heights */
-.chain-column:nth-child(1) .chain-main-card { height: 380px; }
-.chain-column:nth-child(2) .chain-main-card { height: 310px; }
-.chain-column:nth-child(3) .chain-main-card { height: 260px; }
-.chain-column:nth-child(4) .chain-main-card { height: 230px; }
-.chain-column:nth-child(5) .chain-main-card { min-height: 230px; }
 
 /* Card colors variants */
 .chain-card--yellow {
@@ -562,30 +652,19 @@
   color: #faf3e6;
 }
 
-/* Card top layout */
-.chain-card-top {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 .chain-icon {
   width: 32px;
   height: 32px;
   stroke-width: 1.5;
+  color: inherit;
 }
-
-.chain-card--yellow .chain-icon { color: #0c2312; }
-.chain-card--orange .chain-icon { color: #faf3e6; }
-.chain-card--cream .chain-icon { color: #0c2312; }
-.chain-card--light-green .chain-icon { color: #faf3e6; }
-.chain-card--dark-green .chain-icon { color: #faf3e6; }
 
 .chain-card-label {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: inherit;
 }
 
 /* Big counting number styling */
@@ -615,14 +694,14 @@
   opacity: 0.9;
 }
 
-/* Rectangular badge with rounded edges — sits just below its card with a small gap */
+/* Badge: absolutely positioned at the bottom of the column, just below the card */
 .chain-waste-badge {
   display: flex;
   align-items: center;
   gap: 10px;
   height: 52px;
   padding: 0 20px;
-  border-radius: 16px; /* All corners rounded — rectangle with rounded edges */
+  border-radius: 16px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -631,7 +710,10 @@
   transition: all 0.3s ease;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 10px; /* Small breathing space between card and badge */
+  position: absolute;
+  bottom: -62px; /* card fills column, badge sits 10px below it */
+  left: 0;
+  right: 0;
 }
 
 .chain-waste-badge svg {
@@ -689,12 +771,23 @@
 
 /* Total summary column (Column 5) */
 .chain-total-summary {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 40px; /* Push the circle lower under the card */
   gap: 12px;
+  z-index: 2;
+}
+
+.chain-total-summary-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .chain-total-icon {
@@ -770,15 +863,13 @@
   }
 
   .chain-column {
-    min-height: unset;
-    height: auto;
-    gap: 0; /* Keep gap 0 so badge stays flush under card */
+    height: auto !important;
+    min-height: 200px; /* tall enough to show card-top + card content */
   }
 
   .chain-main-card {
-    height: auto !important;
     min-height: 200px;
-    border-radius: 24px; /* Full rounded corners at all sizes */
+    border-radius: 24px;
   }
 
   .chain-column:nth-child(5) {
@@ -814,45 +905,242 @@
 @media (max-width: 768px) {
   .chain-header {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
     margin-bottom: 48px;
   }
 
   .chain-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .chain-column:nth-child(5) {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 520px) {
-  .chain-columns {
-    grid-template-columns: 1fr;
-  }
-
-  .chain-column:nth-child(5) {
-    grid-column: span 1;
-  }
-
-  .chain-total-summary {
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
     width: 100%;
-    border-radius: 24px;
-    padding: 24px;
+  }
+
+  /* Each column: grid layout containing [header spanning all], [card on left], [badge/summary on right] */
+  .chain-column {
+    display: grid !important;
+    grid-template-columns: 1fr 42px;
+    grid-template-rows: auto auto;
+    gap: 8px 10px;
+    height: auto !important;
+    min-height: unset !important;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  /* Cascading widths */
+  .chain-column:nth-child(1) { width: 100%; }
+  .chain-column:nth-child(2) { width: 85%; }
+  .chain-column:nth-child(3) { width: 72%; }
+  .chain-column:nth-child(4) { width: 60%; }
+  .chain-column:nth-child(5) { 
+    width: 100%; 
+    grid-template-columns: 120px 1fr !important;
+  }
+
+  /* Header: spanning both grid columns */
+  .chain-card-top {
+    grid-column: span 2;
+    grid-row: 1;
+    position: static !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    z-index: auto;
+    pointer-events: auto;
+    color: #faf3e6 !important;
+  }
+
+  /* Override per-column card-top colors set for desktop */
+  .chain-column:nth-child(1) .chain-card-top,
+  .chain-column:nth-child(2) .chain-card-top,
+  .chain-column:nth-child(3) .chain-card-top,
+  .chain-column:nth-child(4) .chain-card-top,
+  .chain-column:nth-child(5) .chain-card-top {
+    color: #faf3e6 !important;
+  }
+
+  .chain-card-top .chain-icon {
+    width: 14px;
+    height: 14px;
+    color: #faf3e6;
+    flex-shrink: 0;
+  }
+
+  .chain-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    color: #faf3e6 !important;
+  }
+
+  /* Card sits in grid column 1 */
+  .chain-column > .chain-main-card {
+    grid-column: 1;
+    grid-row: 2;
+    position: static !important;
+    width: 100% !important;
+    height: 96px !important;
+    min-height: unset;
+    border-radius: 16px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    align-self: stretch;
+  }
+
+  /* Badge sits in grid column 2 */
+  .chain-column > .chain-waste-badge {
+    grid-column: 2;
+    grid-row: 2;
+    position: static !important;
+    width: 42px !important;
+    height: 96px !important;
+    margin-top: 0 !important;
+    border-radius: 14px;
+    padding: 10px 4px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    box-sizing: border-box;
+    align-self: stretch;
+  }
+
+  .chain-waste-badge svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+
+  .chain-waste-badge span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    font-size: 9px;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+  }
+
+  /* Column 5 Total summary box (sits in grid column 2) */
+  .chain-column > .chain-total-summary {
+    grid-column: 2;
+    grid-row: 2;
+    position: static !important;
+    width: 100% !important;
+    height: 96px !important;
+    margin-top: 0 !important;
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: rgba(30, 92, 54, 0.6);
+    border: 1px solid rgba(255, 211, 88, 0.15);
+    box-sizing: border-box;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: auto !important;
+  }
+
+  .chain-total-summary-left {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #faf3e6;
+  }
+
+  .chain-total-icon {
+    width: 16px !important;
+    height: 16px !important;
+    color: #ffd358;
+    flex-shrink: 0;
+  }
+
+  .chain-total-label {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px !important;
+    color: #faf3e6;
+    text-align: left !important;
   }
 
   .chain-total-circle {
-    width: 120px;
-    height: 120px;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background-color: #ffd358 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .chain-total-circle-num {
-    font-size: 38px;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    color: #0c2312 !important;
+    line-height: 1.0 !important;
   }
 
   .chain-total-circle-text {
-    font-size: 12px;
+    font-size: 7px !important;
+    font-weight: 700 !important;
+    color: #0c2312 !important;
+    margin-top: 1px !important;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Number and sublabel inside card */
+  .chain-card-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .chain-card-number .impact-stat-number {
+    font-size: 30px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    min-width: unset;
+  }
+
+  .chain-card-sublabel {
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 550;
+  }
+
+  .chain-section {
+    padding: 80px clamp(20px, 4vw, 48px) 100px;
+  }
+
+  .chain-heading {
+    font-size: clamp(36px, 9vw, 56px);
+  }
+
+  .chain-description {
+    font-size: 15px;
   }
 }
+
+

@@ -3,6 +3,8 @@ import "./Impact.css";
 
 import cassavaBg from "../assets/cassava 1.webp";
 import farmImg from "../assets/farm-aerial.png";
+import cassavaHero from "../assets/cassava hero.jpg";
+import factoryImg from "../assets/starch factory 1.jpg";
 
 /* ── Reusable scroll-reveal hook ── */
 function useReveal(threshold = 0.15) {
@@ -73,10 +75,11 @@ export default function Impact() {
 
   return (
     <main className="impact-page">
-      {/* ═════ HERO: Sticky light-green heading ═════ */}
+      {/* ═════ HERO: Sticky heading with background image ═════ */}
       <section className="impact-hero" ref={heroRef}>
-        <div className="impact-blob impact-blob-tl" />
-        <div className="impact-blob impact-blob-br" />
+        <div className="impact-hero-bg">
+          <img src={cassavaHero} alt="Cassava post-harvest hero" />
+        </div>
 
         <div className="impact-hero-content">
           <h1 className="impact-hero-title">
@@ -150,13 +153,11 @@ export default function Impact() {
       <div className="impact-content-scroll">
         <div className="impact-panels-inner">
           {/* Panel 1 */}
-          <div className="impact-panel row-text-right" ref={panel1Ref}>
+          <div className="impact-panel row-media-right" ref={panel1Ref}>
             <div className="impact-col col-left">
               <h2 className="impact-panel-heading">
                 Solving the perishability crisis.
               </h2>
-            </div>
-            <div className="impact-col col-right">
               <p className="impact-panel-text">
                 Cassava is a resilient and hardy crop, but once harvested, its roots deteriorate rapidly due to physiological post-harvest starch degradation. Within 24 to 48 hours, the starch quality declines, rendering the root unusable for premium extraction.
               </p>
@@ -166,6 +167,11 @@ export default function Impact() {
               <p className="impact-panel-text">
                 Our plant's design includes an advanced waste water treatment system that purifies process water, recycling up to 90% back into root washing and rasping, significantly reducing freshwater consumption.
               </p>
+            </div>
+            <div className="impact-col col-right flex-center">
+              <div className="impact-image-container">
+                <img src={factoryImg} alt="State-of-the-art Starch Factory in Obiri" className="impact-detail-img" />
+              </div>
             </div>
           </div>
 
@@ -210,16 +216,16 @@ export default function Impact() {
         <div className="chain-columns">
           {/* Column 1 — Harvest */}
           <div className="chain-column">
+            <div className="chain-card-top">
+              <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22V13c0-2.5 1.5-4.5 4-5.5" />
+                <path d="M12 16c-3-1-5-3.5-5-6.5 0 0 3 0 5 3" />
+                <path d="M16 7.5C16 5 14 3 11.5 3 11.5 3 11.5 6 14 7.5" />
+                <path d="M5 22h14" />
+              </svg>
+              <span className="chain-card-label">At Harvest</span>
+            </div>
             <div className="chain-main-card chain-card--yellow">
-              <div className="chain-card-top">
-                <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22V13c0-2.5 1.5-4.5 4-5.5" />
-                  <path d="M12 16c-3-1-5-3.5-5-6.5 0 0 3 0 5 3" />
-                  <path d="M16 7.5C16 5 14 3 11.5 3 11.5 3 11.5 6 14 7.5" />
-                  <path d="M5 22h14" />
-                </svg>
-                <span className="chain-card-label">At Harvest</span>
-              </div>
               <div className="chain-card-bottom">
                 <div className="chain-card-number">
                   <span className="impact-stat-number">100%</span>
@@ -241,14 +247,14 @@ export default function Impact() {
 
           {/* Column 2 — 24 Hours */}
           <div className="chain-column">
+            <div className="chain-card-top">
+              <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span className="chain-card-label">24 Hours Post-Harvest</span>
+            </div>
             <div className="chain-main-card chain-card--orange">
-              <div className="chain-card-top">
-                <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-                <span className="chain-card-label">24 Hours Post-Harvest</span>
-              </div>
               <div className="chain-card-bottom">
                 <div className="chain-card-number">
                   <span className="impact-stat-number">70%</span>
@@ -270,15 +276,15 @@ export default function Impact() {
 
           {/* Column 3 — 48 Hours */}
           <div className="chain-column">
+            <div className="chain-card-top">
+              <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+              <span className="chain-card-label">48 Hours Post-Harvest</span>
+            </div>
             <div className="chain-main-card chain-card--cream">
-              <div className="chain-card-top">
-                <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                  <line x1="12" y1="9" x2="12" y2="13" />
-                  <line x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-                <span className="chain-card-label">48 Hours Post-Harvest</span>
-              </div>
               <div className="chain-card-bottom">
                 <div className="chain-card-number">
                   <span className="impact-stat-number">30%</span>
@@ -300,15 +306,15 @@ export default function Impact() {
 
           {/* Column 4 — 72 Hours */}
           <div className="chain-column">
+            <div className="chain-card-top">
+              <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              <span className="chain-card-label">72 Hours Post-Harvest</span>
+            </div>
             <div className="chain-main-card chain-card--light-green">
-              <div className="chain-card-top">
-                <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="15" y1="9" x2="9" y2="15" />
-                  <line x1="9" y1="9" x2="15" y2="15" />
-                </svg>
-                <span className="chain-card-label">72 Hours Post-Harvest</span>
-              </div>
               <div className="chain-card-bottom">
                 <div className="chain-card-number">
                   <span className="impact-stat-number">0%</span>
@@ -330,14 +336,14 @@ export default function Impact() {
 
           {/* Column 5 — Our Solution */}
           <div className="chain-column">
+            <div className="chain-card-top">
+              <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span className="chain-card-label">Cross World Loop</span>
+            </div>
             <div className="chain-main-card chain-card--dark-green">
-              <div className="chain-card-top">
-                <svg className="chain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <polyline points="22 4 12 14.01 9 11.01" />
-                </svg>
-                <span className="chain-card-label">Cross World Loop</span>
-              </div>
               <div className="chain-card-bottom">
                 <div className="chain-card-number">
                   <span className="impact-stat-number">100%</span>
@@ -345,16 +351,21 @@ export default function Impact() {
                 <p className="chain-card-sublabel">Starch Yield Conserved</p>
               </div>
             </div>
-
-            <div className="chain-waste-badge chain-badge--dark-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 6h18" />
-                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                <line x1="10" y1="11" x2="10" y2="17" />
-                <line x1="14" y1="11" x2="14" y2="17" />
-              </svg>
-              <span>Starch Preservation</span>
+            <div className="chain-total-summary">
+              <div className="chain-total-summary-left">
+                <svg className="chain-total-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 6h18" />
+                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                  <line x1="10" y1="11" x2="10" y2="17" />
+                  <line x1="14" y1="11" x2="14" y2="17" />
+                </svg>
+                <span className="chain-total-label">Waste<br />avoided</span>
+              </div>
+              <div className="chain-total-circle">
+                <span className="chain-total-circle-num">100%</span>
+                <span className="chain-total-circle-text">Starch Saved</span>
+              </div>
             </div>
           </div>
         </div>

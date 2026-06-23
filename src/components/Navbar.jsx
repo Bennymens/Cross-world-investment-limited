@@ -63,10 +63,14 @@ export default function Navbar() {
               </NavLink>
             </div>
 
-            {/* Center Logo */}
+            {/* Center Logo & Brand Name */}
             <div className="center">
-              <NavLink to="/" onClick={() => setMenuOpen(false)}>
-                <img src={Logo} alt="Agro logo" className="logo-svg" />
+              <NavLink to="/" onClick={() => setMenuOpen(false)} className="navbar-logo-link">
+                <img src={Logo} alt="Cross World Logo" className="logo-svg" />
+                <div className="navbar-brand-text">
+                  <span className="navbar-logo-brand">Cross World™</span>
+                  <span className="navbar-logo-sub">Investment Limited</span>
+                </div>
               </NavLink>
             </div>
 
