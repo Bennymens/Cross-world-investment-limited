@@ -101,7 +101,8 @@ button {
 
 /* Styling to allow secondary pages to behave as opaque cards that cover the sticky footer */
 .faq-page,
-.contact-page {
+.contact-page,
+.legal-page {
   position: relative;
   z-index: 2;
   background-color: var(--site-bg);

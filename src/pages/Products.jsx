@@ -3,6 +3,8 @@ import "./Products.css";
 
 import farmImg from "../assets/farm-aerial.png";
 import cassavaImg from "../assets/Cassava.png";
+import industrialStarchImg from "../assets/industrial_starch.png";
+import foodGradeStarchImg from "../assets/Food grade starch.png";
 import cassavaBg from "../assets/cassava 1.webp";
 
 import chemicalFreeBadge from "../assets/Chemical free.png";
@@ -92,8 +94,8 @@ export default function Products() {
 
   const productsData = [
     { name: "Premium Cassava Roots", img: cassavaImg },
-    { name: "Food Grade Starch", img: null },
-    { name: "Industrial Starch", img: null },
+    { name: "Food Grade Starch", img: foodGradeStarchImg },
+    { name: "Industrial Starch", img: industrialStarchImg },
   ];
 
   useEffect(() => {
