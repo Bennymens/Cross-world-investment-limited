@@ -8,19 +8,43 @@ export default function Contact() {
     subject: "",
     message: ""
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // "idle" | "sending" | "success" | "error"
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
-    // Simulate API Submission
-    setSubmitted(true);
-    setTimeout(() => {
+
+    setStatus("sending");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      // Guard: parse JSON only if the response actually contains JSON
+      let data = {};
+      const contentType = res.headers.get("content-type") || "";
+      if (contentType.includes("application/json")) {
+        data = await res.json();
+      }
+
+      if (!res.ok) {
+        throw new Error(
+          data.error ||
+          `Request failed (${res.status}). Please try again or email us directly.`
+        );
+      }
+
+      setStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setSubmitted(false);
-      alert("Thank you! Your message has been sent successfully.");
-    }, 1200);
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err.message || "Failed to send. Please email us directly at info@crossinvestgh.com.");
+    }
   };
 
   const handleChange = (e) => {
@@ -85,70 +109,102 @@ export default function Contact() {
 
         {/* Form Column */}
         <div className="contact-form-panel">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name-input" className="form-label">Full Name *</label>
-              <input
-                id="name-input"
-                type="text"
-                name="name"
-                className="form-input"
-                placeholder="Tony Assan"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+          {status === "success" ? (
+            <div className="form-success-banner">
+              <div className="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h3 className="success-title">Message Sent!</h3>
+              <p className="success-text">
+                Thank you for reaching out. We've sent a confirmation to your inbox and will get back to you within 1–2 business days.
+              </p>
+              <button
+                className="submit-btn"
+                onClick={() => setStatus("idle")}
+              >
+                Send Another Message
+              </button>
             </div>
+          ) : (
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name-input" className="form-label">Full Name *</label>
+                <input
+                  id="name-input"
+                  type="text"
+                  name="name"
+                  className="form-input"
+                  placeholder="Tony Assan"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="email-input" className="form-label">Email Address *</label>
-              <input
-                id="email-input"
-                type="email"
-                name="email"
-                className="form-input"
-                placeholder="tony@example.com"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="email-input" className="form-label">Email Address *</label>
+                <input
+                  id="email-input"
+                  type="email"
+                  name="email"
+                  className="form-input"
+                  placeholder="tony@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="subject-input" className="form-label">Subject</label>
-              <input
-                id="subject-input"
-                type="text"
-                name="subject"
-                className="form-input"
-                placeholder="Investment Query"
-                value={formData.subject}
-                onChange={handleChange}
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="subject-input" className="form-label">Subject</label>
+                <input
+                  id="subject-input"
+                  type="text"
+                  name="subject"
+                  className="form-input"
+                  placeholder="Investment Query"
+                  value={formData.subject}
+                  onChange={handleChange}
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="message-input" className="form-label">Message *</label>
-              <textarea
-                id="message-input"
-                name="message"
-                className="form-input form-textarea"
-                placeholder="How can we assist you with our cassava starch business..."
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
+              <div className="form-group">
+                <label htmlFor="message-input" className="form-label">Message *</label>
+                <textarea
+                  id="message-input"
+                  name="message"
+                  className="form-input form-textarea"
+                  placeholder="How can we assist you with our cassava starch business..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                ></textarea>
+              </div>
 
-            <button
-              id="submit-message-btn"
-              type="submit"
-              className={`submit-btn ${submitted ? "submitting" : ""}`}
-              disabled={submitted}
-            >
-              {submitted ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+              {status === "error" && (
+                <div className="form-error-banner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <span>{errorMsg}</span>
+                </div>
+              )}
+
+              <button
+                id="submit-message-btn"
+                type="submit"
+                className={`submit-btn ${status === "sending" ? "submitting" : ""}`}
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending…" : "Send Message"}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </main>
