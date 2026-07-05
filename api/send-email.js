@@ -19,39 +19,55 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // ── Guard: check all required env vars are present ────────────────────────
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_SECURE, CONTACT_TO } = process.env;
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+    console.error("Missing SMTP environment variables:", {
+      SMTP_HOST: !!SMTP_HOST,
+      SMTP_PORT: !!SMTP_PORT,
+      SMTP_USER: !!SMTP_USER,
+      SMTP_PASS: !!SMTP_PASS,
+    });
+    return res.status(500).json({
+      error: "Server email configuration is incomplete. Please contact us at info@crossinvestgh.com.",
+    });
+  }
+
+  // ── Parse and validate body ────────────────────────────────────────────────
   const { name, email, subject, message } = req.body || {};
 
-  // Validate required fields
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Name, email, and message are required." });
   }
 
-  // Basic email format check
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({ error: "Invalid email address." });
   }
 
-  // Create SMTP transporter using env variables
+  // ── Create SMTP transporter ────────────────────────────────────────────────
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: process.env.SMTP_SECURE === "true", // true for port 465 (SSL)
+    host: SMTP_HOST,
+    port: Number(SMTP_PORT),
+    secure: SMTP_SECURE === "true", // true for port 465 (SSL)
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: SMTP_USER,
+      pass: SMTP_PASS,
     },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
   });
 
-  const recipientEmail = process.env.CONTACT_TO || process.env.SMTP_USER;
+  const recipientEmail = CONTACT_TO || SMTP_USER;
   const subjectLine = subject
     ? `Contact Form: ${subject}`
     : `New Contact Form Message from ${name}`;
 
   try {
-    // ── 1. Notification email to Cross World ───────────────────────────────
+    // ── 1. Notification email to Cross World ──────────────────────────────────
     await transporter.sendMail({
-      from: `"Cross World Website" <${process.env.SMTP_USER}>`,
+      from: `"Cross World Website" <${SMTP_USER}>`,
       to: recipientEmail,
       replyTo: email,
       subject: subjectLine,
@@ -93,7 +109,7 @@ export default async function handler(req, res) {
 
     // ── 2. Auto-reply confirmation to the sender ───────────────────────────
     await transporter.sendMail({
-      from: `"Cross World Investment Limited" <${process.env.SMTP_USER}>`,
+      from: `"Cross World Investment Limited" <${SMTP_USER}>`,
       to: email,
       subject: "We received your message — Cross World Investment Limited",
       html: `
@@ -127,9 +143,16 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("SMTP Error:", error);
+    // Full error logged server-side — visible in Vercel → Project → Functions → Logs
+    console.error("SMTP Error:", {
+      message: error.message,
+      code: error.code,
+      command: error.command,
+      response: error.response,
+    });
+
     return res.status(500).json({
-      error: "Failed to send email. Please try again or contact us directly.",
+      error: `Email delivery failed: ${error.message || "Unknown SMTP error"}`,
     });
   }
 }
