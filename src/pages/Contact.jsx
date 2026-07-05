@@ -6,6 +6,7 @@ export default function Contact() {
     name: "",
     email: "",
     subject: "",
+    service: "", // Added service required
     message: ""
   });
   const [status, setStatus] = useState("idle"); // "idle" | "sending" | "success" | "error"
@@ -40,7 +41,7 @@ export default function Contact() {
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", service: "", message: "" });
     } catch (err) {
       setStatus("error");
       setErrorMsg(err.message || "Failed to send. Please email us directly at info@crossinvestgh.com.");
@@ -109,7 +110,113 @@ export default function Contact() {
 
         {/* Form Column */}
         <div className="contact-form-panel">
-          {status === "success" ? (
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name-input" className="form-label">Full Name *</label>
+              <input
+                id="name-input"
+                type="text"
+                name="name"
+                className="form-input"
+                placeholder="Tony Assan"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email-input" className="form-label">Email Address *</label>
+              <input
+                id="email-input"
+                type="email"
+                name="email"
+                className="form-input"
+                placeholder="tony@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="service-input" className="form-label">Service Required *</label>
+              <select
+                id="service-input"
+                name="service"
+                className="form-input form-select"
+                value={formData.service}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>Select a service...</option>
+                <option value="Premium Cassava Starch Supply">Premium Cassava Starch Supply</option>
+                <option value="Out-take & Contract Farming">Out-take &amp; Contract Farming Partnership</option>
+                <option value="Investment Inquiries">Investment &amp; Feasibility Inquiries</option>
+                <option value="Distribution Opportunities">Starch Distribution Inquiries</option>
+                <option value="General Inquiries">General Business Inquiries</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="subject-input" className="form-label">Subject</label>
+              <input
+                id="subject-input"
+                type="text"
+                name="subject"
+                className="form-input"
+                placeholder="Investment Query"
+                value={formData.subject}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message-input" className="form-label">Message *</label>
+              <textarea
+                id="message-input"
+                name="message"
+                className="form-input form-textarea"
+                placeholder="How can we assist you with our cassava starch business..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </div>
+
+            {status === "error" && (
+              <div className="form-error-banner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <span>{errorMsg}</span>
+              </div>
+            )}
+
+            <button
+              id="submit-message-btn"
+              type="submit"
+              className={`submit-btn ${status === "sending" ? "submitting" : ""}`}
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "Sending…" : "Send Message"}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Success Modal Overlay */}
+      {status === "success" && (
+        <div className="contact-modal-overlay" onClick={() => setStatus("idle")}>
+          <div className="contact-modal-box" onClick={(e) => e.stopPropagation()}>
+            <button className="contact-modal-close" onClick={() => setStatus("idle")} aria-label="Close modal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
             <div className="form-success-banner">
               <div className="success-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -125,88 +232,12 @@ export default function Contact() {
                 className="submit-btn"
                 onClick={() => setStatus("idle")}
               >
-                Send Another Message
+                Back to Form
               </button>
             </div>
-          ) : (
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="name-input" className="form-label">Full Name *</label>
-                <input
-                  id="name-input"
-                  type="text"
-                  name="name"
-                  className="form-input"
-                  placeholder="Tony Assan"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="email-input" className="form-label">Email Address *</label>
-                <input
-                  id="email-input"
-                  type="email"
-                  name="email"
-                  className="form-input"
-                  placeholder="tony@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="subject-input" className="form-label">Subject</label>
-                <input
-                  id="subject-input"
-                  type="text"
-                  name="subject"
-                  className="form-input"
-                  placeholder="Investment Query"
-                  value={formData.subject}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message-input" className="form-label">Message *</label>
-                <textarea
-                  id="message-input"
-                  name="message"
-                  className="form-input form-textarea"
-                  placeholder="How can we assist you with our cassava starch business..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </div>
-
-              {status === "error" && (
-                <div className="form-error-banner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="8" x2="12" y2="12" />
-                    <line x1="12" y1="16" x2="12.01" y2="16" />
-                  </svg>
-                  <span>{errorMsg}</span>
-                </div>
-              )}
-
-              <button
-                id="submit-message-btn"
-                type="submit"
-                className={`submit-btn ${status === "sending" ? "submitting" : ""}`}
-                disabled={status === "sending"}
-              >
-                {status === "sending" ? "Sending…" : "Send Message"}
-              </button>
-            </form>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </main>
   );
 }

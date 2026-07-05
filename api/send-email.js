@@ -34,7 +34,7 @@ export default async function handler(req, res) {
   }
 
   // ── Parse and validate body ────────────────────────────────────────────────
-  const { name, email, subject, message } = req.body || {};
+  const { name, email, subject, service, message } = req.body || {};
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Name, email, and message are required." });
@@ -66,9 +66,12 @@ export default async function handler(req, res) {
   });
 
   const recipientEmail = CONTACT_TO || SMTP_USER;
+  
+  // Prefix subject line with the service if specified
+  const servicePrefix = service ? `[${service}] ` : "";
   const subjectLine = subject
-    ? `Contact Form: ${subject}`
-    : `New Contact Form Message from ${name}`;
+    ? `${servicePrefix}${subject}`
+    : `${servicePrefix}New message from ${name}`;
 
   try {
     // ── 1. Notification email to Cross World ──────────────────────────────────
@@ -85,13 +88,18 @@ export default async function handler(req, res) {
 
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 8px 0; color: #555; font-weight: bold; width: 100px;">Name</td>
+              <td style="padding: 8px 0; color: #555; font-weight: bold; width: 130px;">Name</td>
               <td style="padding: 8px 0; color: #111;">${name}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #555; font-weight: bold;">Email</td>
               <td style="padding: 8px 0; color: #111;"><a href="mailto:${email}" style="color: #2e7d32;">${email}</a></td>
             </tr>
+            ${service ? `
+            <tr>
+              <td style="padding: 8px 0; color: #555; font-weight: bold;">Service Required</td>
+              <td style="padding: 8px 0; color: #111; font-weight: bold; color: #1a3a2a;">${service}</td>
+            </tr>` : ""}
             ${subject ? `
             <tr>
               <td style="padding: 8px 0; color: #555; font-weight: bold;">Subject</td>
