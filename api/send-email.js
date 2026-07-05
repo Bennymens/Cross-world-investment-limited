@@ -54,6 +54,10 @@ export default async function handler(req, res) {
       user: SMTP_USER,
       pass: SMTP_PASS,
     },
+    tls: {
+      // Prevent TLS errors if connecting directly via IP or alternate hostnames
+      rejectUnauthorized: false
+    },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
     socketTimeout: 15000,
