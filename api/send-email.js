@@ -56,7 +56,9 @@ export default async function handler(req, res) {
     },
     tls: {
       // Prevent TLS errors if connecting directly via IP or alternate hostnames
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
+      // Allow older TLS versions (TLS 1.0/1.1) since some mail hosts use older protocols
+      minVersion: "TLSv1"
     },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
