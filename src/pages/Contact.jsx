@@ -6,7 +6,7 @@ export default function Contact() {
     name: "",
     email: "",
     subject: "",
-    service: "", // Added service required
+    service: "",
     message: ""
   });
   const [status, setStatus] = useState("idle"); // "idle" | "sending" | "success" | "error"
@@ -232,7 +232,7 @@ export default function Contact() {
                 className="submit-btn"
                 onClick={() => setStatus("idle")}
               >
-                Back to Form
+                Back
               </button>
             </div>
           </div>
