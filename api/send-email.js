@@ -83,7 +83,7 @@ export default async function handler(req, res) {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #f9f9f9; border-radius: 8px;">
           <h2 style="color: #1a3a2a; margin-bottom: 4px;">New Contact Form Submission</h2>
-          <p style="color: #666; font-size: 13px; margin-top: 0;">Received via crossworldinvestments.com</p>
+          <p style="color: #666; font-size: 13px; margin-top: 0;">Received via crossinvestgh.com</p>
           <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;" />
 
           <table style="width: 100%; border-collapse: collapse;">

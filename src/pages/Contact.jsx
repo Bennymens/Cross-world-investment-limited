@@ -86,7 +86,7 @@ export default function Contact() {
               </div>
               <div className="detail-content">
                 <span className="detail-label">Email</span>
-                <a href="mailto:info@crossworldinvestments.com" className="detail-link">info@crossworldinvestments.com</a>
+                <a href="mailto:info@crossinvestgh.com" className="detail-link">info@crossinvestgh.com</a>
               </div>
             </div>
 

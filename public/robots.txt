@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://crossworldinvestments.com/sitemap.xml
 Sitemap: https://crossinvestgh.com/sitemap.xml
