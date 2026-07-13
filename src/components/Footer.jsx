@@ -10,10 +10,7 @@ const navPrimaryLinks = [
   { to: "/contact", label: "Contact Us" },
 ];
 
-const navSecondaryLinks = [
-  { to: "/our-story", label: "Our Story" },
-  { to: "/products", label: "Products" },
-];
+
 
 const legalLinks = [
   { to: "/privacy-policy", label: "Privacy Policy" },
@@ -181,14 +178,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 3: Secondary Links & Legal + Copyright */}
+        {/* Column 3: Legal + Copyright */}
         <div className="footer-column footer-col-right">
-          <div className="footer-nav-secondary">
-            {navSecondaryLinks.map((link, idx) => (
-              <FooterLink key={idx} to={link.to} label={link.label} />
-            ))}
-          </div>
-
           <div className="footer-bottom-section footer-legal-container">
             <div className="footer-nav-legal">
               {legalLinks.map((link, idx) => (
