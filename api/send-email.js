@@ -74,9 +74,9 @@ export default async function handler(req, res) {
     : `${servicePrefix}New message from ${name}`;
 
   try {
-    // ── 1. Notification email to Cross World ──────────────────────────────────
+    // ── 1. Notification email to CrossWorld ──────────────────────────────────
     await transporter.sendMail({
-      from: `"Cross World Website" <${SMTP_USER}>`,
+      from: `"CrossWorld Website" <${SMTP_USER}>`,
       to: recipientEmail,
       replyTo: email,
       subject: subjectLine,
@@ -123,9 +123,9 @@ export default async function handler(req, res) {
 
     // ── 2. Auto-reply confirmation to the sender ───────────────────────────
     await transporter.sendMail({
-      from: `"Cross World Investment Limited" <${SMTP_USER}>`,
+      from: `"CrossWorld Investment Limited" <${SMTP_USER}>`,
       to: email,
-      subject: "We received your message — Cross World Investment Limited",
+      subject: "We received your message — CrossWorld Investment Limited",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #f9f9f9; border-radius: 8px;">
           <h2 style="color: #1a3a2a;">Thank you, ${name}!</h2>
@@ -149,7 +149,7 @@ export default async function handler(req, res) {
           <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 24px 0;" />
 
           <p style="font-size: 12px; color: #999;">
-            Cross World Investment Limited · No. 14 Liberation Road, Cantonments, Accra, Ghana
+            CrossWorld Investment Limited · No. 14 Liberation Road, Cantonments, Accra, Ghana
           </p>
         </div>
       `,

@@ -47,7 +47,7 @@ export default function LegalPage({ type }) {
             </div>
             <div className="sidebar-meta">
               <span className="meta-label">Entity</span>
-              <span className="meta-value">Cross World Investment Ltd</span>
+              <span className="meta-value">CrossWorld Investment Ltd</span>
             </div>
             <div className="sidebar-actions">
               <Link to="/contact" className="sidebar-contact-btn">

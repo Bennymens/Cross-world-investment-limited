@@ -129,9 +129,9 @@ export default function Footer() {
           <div className="footer-title">Sustainable Agro-Processing.</div>
           <div className="footer-bottom-section footer-logo-container">
             <Link to="/" className="footer-logo-link">
-              <img src={Logo} alt="Cross World Logo" className="footer-logo-icon" />
+              <img src={Logo} alt="CrossWorld Logo" className="footer-logo-icon" />
               <div className="footer-brand-text">
-                <span className="footer-logo-brand">Cross World™</span>
+                <span className="footer-logo-brand">CrossWorld™</span>
                 <span className="footer-logo-sub">Investment Limited</span>
               </div>
             </Link>
@@ -187,7 +187,7 @@ export default function Footer() {
               ))}
             </div>
             <div className="footer-copyright">
-              © {new Date().getFullYear()}, Cross World Investment Limited.
+              © {new Date().getFullYear()}, CrossWorld Investment Limited.
               <br />
               All rights reserved.
             </div>

@@ -209,7 +209,7 @@ export default function Products() {
               <div className="header-text-group">
                 <span className="products-eyebrow">Categories</span>
                 <h2 className="products-section-title">
-                  Cross World Produce<br />Categories
+                  CrossWorld Produce<br />Categories
                 </h2>
               </div>
               <div className="blob-wrapper">

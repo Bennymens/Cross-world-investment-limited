@@ -73,7 +73,7 @@ export default function Contact() {
               </div>
               <div className="detail-content">
                 <span className="detail-label">Phone</span>
-                <a href="tel:+233202007160" className="detail-link">+233 20 200 7160</a>
+                <a href="tel:+233275909000" className="detail-link">+233 27 590 9000</a>
               </div>
             </div>
 
@@ -100,8 +100,8 @@ export default function Contact() {
               <div className="detail-content">
                 <span className="detail-label">Headquarters</span>
                 <p className="detail-text">
-                  No. 14 Liberation Road<br />
-                  Cantonments, Accra, Ghana
+                  D30 Manet Court<br />
+                  Spintex Road, Accra, Ghana
                 </p>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                 type="text"
                 name="name"
                 className="form-input"
-                placeholder="Tony Assan"
+                placeholder="John Scott"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -132,7 +132,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 className="form-input"
-                placeholder="tony@example.com"
+                placeholder="john@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 required

@@ -341,7 +341,7 @@ export default function Impact() {
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                 <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
-              <span className="chain-card-label">Cross World Loop</span>
+              <span className="chain-card-label">CrossWorld Loop</span>
             </div>
             <div className="chain-main-card chain-card--dark-green">
               <div className="chain-card-bottom">

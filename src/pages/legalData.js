@@ -14,7 +14,7 @@ export const legalData = {
         title: "2. How We Use Your Information",
         content: [
           "To respond to your inquiries regarding our agricultural products, starch capacity, or partnerships.",
-          "To provide updates about Cross World Investment Limited, including operations at our Obiri plantation and processing plant.",
+          "To provide updates about CrossWorld Investment Limited, including operations at our Obiri plantation and processing plant.",
           "To improve our website performance, user experience, and analyze site analytics to understand our audience better.",
           "To comply with legal obligations, protect our legal rights, and ensure safety across our services."
         ]
@@ -41,22 +41,22 @@ export const legalData = {
       {
         title: "1. Agreement to Terms",
         content: [
-          "By accessing and browsing the website of Cross World Investment Limited ('Website'), you agree to comply with and be bound by these Terms of Service. If you do not agree, please refrain from using our Website.",
+          "By accessing and browsing the website of CrossWorld Investment Limited ('Website'), you agree to comply with and be bound by these Terms of Service. If you do not agree, please refrain from using our Website.",
           "These terms may be updated periodically without prior notice. Continued use of the Website following any changes constitutes your acceptance of the revised terms."
         ]
       },
       {
         title: "2. Intellectual Property Rights",
         content: [
-          "All content on this Website, including text, graphics, logos, images, icons, video clips, and software, is the exclusive property of Cross World Investment Limited or its content suppliers and is protected by Ghanaian and international copyright laws.",
-          "You may view and download material for personal, non-commercial use only. Any reproduction, distribution, modification, or republication of Website materials without prior written consent from Cross World is strictly prohibited."
+          "All content on this Website, including text, graphics, logos, images, icons, video clips, and software, is the exclusive property of CrossWorld Investment Limited or its content suppliers and is protected by Ghanaian and international copyright laws.",
+          "You may view and download material for personal, non-commercial use only. Any reproduction, distribution, modification, or republication of Website materials without prior written consent from CrossWorld is strictly prohibited."
         ]
       },
       {
         title: "3. User Conduct and Liability",
         content: [
           "You agree not to use this Website for any unlawful purpose or in any way that could damage, disable, or impair the Website's functionality or interfere with other users' enjoyment of the Website.",
-          "Cross World Investment Limited provides this Website on an 'as-is' and 'as-available' basis. We make no representations or warranties of any kind regarding the accuracy, completeness, or reliability of Website content. Under no circumstances will Cross World be liable for any direct, indirect, incidental, or consequential damages resulting from your use of this Website."
+          "CrossWorld Investment Limited provides this Website on an 'as-is' and 'as-available' basis. We make no representations or warranties of any kind regarding the accuracy, completeness, or reliability of Website content. Under no circumstances will CrossWorld be liable for any direct, indirect, incidental, or consequential damages resulting from your use of this Website."
         ]
       },
       {
@@ -74,7 +74,7 @@ export const legalData = {
       {
         title: "1. Corporate Governance & Ethics",
         content: [
-          "At Cross World Investment Limited, we are committed to the highest standards of corporate governance, transparency, and ethical conduct. Our operations are guided by respect for local communities, environmental sustainability, and ethical business dealings.",
+          "At CrossWorld Investment Limited, we are committed to the highest standards of corporate governance, transparency, and ethical conduct. Our operations are guided by respect for local communities, environmental sustainability, and ethical business dealings.",
           "We enforce a strict zero-tolerance policy against all forms of bribery, corruption, extortion, and fraudulent practices. All employees, contractors, and partners are expected to act with integrity in all interactions."
         ]
       },
@@ -127,7 +127,7 @@ export const legalData = {
       {
         title: "1. Scope and Application",
         content: [
-          "These General Terms and Conditions of Sale apply to all supply contracts, orders, and sales of cassava starch (both food-grade and industrial) and related cassava derivatives produced by Cross World Investment Limited.",
+          "These General Terms and Conditions of Sale apply to all supply contracts, orders, and sales of cassava starch (both food-grade and industrial) and related cassava derivatives produced by CrossWorld Investment Limited.",
           "Any variations or modifications to these terms must be agreed upon in writing and signed by authorized representatives of both parties."
         ]
       },
@@ -141,7 +141,7 @@ export const legalData = {
       {
         title: "3. Delivery, Shipping, and Payment",
         content: [
-          "Deliveries will be executed in accordance with the Incoterms specified in individual sales contracts (typically Ex-Works Obiri Factory or FOB Port of Tema). Shipping dates are estimates, and Cross World is not liable for logistics delays beyond our reasonable control.",
+          "Deliveries will be executed in accordance with the Incoterms specified in individual sales contracts (typically Ex-Works Obiri Factory or FOB Port of Tema). Shipping dates are estimates, and CrossWorld is not liable for logistics delays beyond our reasonable control.",
           "Payment terms are outlined in the specific contract (typically Letter of Credit or bank transfer prior to release of shipment). All taxes, tariffs, and customs clearance charges are the responsibility of the buyer unless otherwise agreed in writing."
         ]
       }

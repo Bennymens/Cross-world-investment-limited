@@ -552,7 +552,7 @@ export default function BusinessPlan() {
             <div className="bp-card info-conclusion-card">
               <h2>Conclusion & Financial Viability</h2>
               <p>
-                Cross World Investments Limited has successfully moved beyond its research phase and is ready to enter commercial industrial starch processing. The financials demonstrate exceptional viability, with a projected average annual revenue of <strong>$4,000,000+</strong> over the first five years and healthy profit margins before tax averaging <strong>55%+</strong>. The required project funding of <strong>$7,362,000</strong> is projected to be fully repaid within <strong>three years</strong> (after a one-year grace/moratorium period). By integrating mechanized agriculture with state-of-the-art closed-loop processing, Cross World is positioned to lead agro-processing in Ghana and yield exceptional returns for investors.
+                CrossWorld Investments Limited has successfully moved beyond its research phase and is ready to enter commercial industrial starch processing. The financials demonstrate exceptional viability, with a projected average annual revenue of <strong>$4,000,000+</strong> over the first five years and healthy profit margins before tax averaging <strong>55%+</strong>. The required project funding of <strong>$7,362,000</strong> is projected to be fully repaid within <strong>three years</strong> (after a one-year grace/moratorium period). By integrating mechanized agriculture with state-of-the-art closed-loop processing, CrossWorld is positioned to lead agro-processing in Ghana and yield exceptional returns for investors.
               </p>
             </div>
           </div>
@@ -626,7 +626,7 @@ export default function BusinessPlan() {
                   <tr>
                     <td><strong>Feedstock Perishability / Availability</strong></td>
                     <td><span className="risk-badge risk-high">● High</span></td>
-                    <td>Cross World cultivates its own 5,000-acre farm directly adjacent to the factory, rather than relying on inconsistent external out-growers.</td>
+                    <td>CrossWorld cultivates its own 5,000-acre farm directly adjacent to the factory, rather than relying on inconsistent external out-growers.</td>
                   </tr>
                   <tr>
                     <td><strong>Market Access & Buyer Prospecting</strong></td>
@@ -665,8 +665,8 @@ export default function BusinessPlan() {
             {/* Call to Action */}
             <div className="bp-cta-card">
               <div className="bp-cta-inner">
-                <h2>Ready to Partner with Cross World?</h2>
-                <p>Cross World Investments Limited is actively seeking strategic investors and financial partners to co-finance this world-class agro-processing venture. Contact us to receive the full investor deck, financial models, and due diligence documentation.</p>
+                <h2>Ready to Partner with CrossWorld?</h2>
+                <p>CrossWorld Investments Limited is actively seeking strategic investors and financial partners to co-finance this world-class agro-processing venture. Contact us to receive the full investor deck, financial models, and due diligence documentation.</p>
                 <div className="bp-cta-meta">
                   <span>📞 +233 20 200 7160</span>
                   <span>👤 A. Assan — Founder & CEO</span>
@@ -695,7 +695,7 @@ export default function BusinessPlan() {
             <span className="bp-title-accent">Plan.</span>
           </h1>
           <p className="bp-subtitle">
-            Industrial Cassava Starch Processing<br />Cross World Investments Limited
+            Industrial Cassava Starch Processing<br />CrossWorld Investments Limited
           </p>
           <div className="bp-meta-row">
             <span>👤 A. Assan — Author</span>

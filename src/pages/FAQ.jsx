@@ -104,7 +104,7 @@ export default function FAQ() {
             </div>
             <div className="faq-col-right-v2">
               <p className="faq-answer-v2">
-                Cross World has partnered with the TIAST Group, an acclaimed machinery, financial, and technology service provider. Under this partnership, TIAST Group provides the processing machinery, engineering setup, and 2 years of onsite technical support.
+                CrossWorld has partnered with the TIAST Group, an acclaimed machinery, financial, and technology service provider. Under this partnership, TIAST Group provides the processing machinery, engineering setup, and 2 years of onsite technical support.
               </p>
               <p className="faq-answer-v2">
                 Crucially, TIAST Group also acts as our contracted off-taker, agreeing to purchase 100% of our starch output on a pre-paid Freight-On-Board (FOB) basis. This guarantees a ready market, secure USD payments, and eliminates local buyer prospecting risks.
@@ -131,7 +131,7 @@ export default function FAQ() {
                 A key challenge that plagued older setups (such as the Ayensu Starch Factory) was the supply of raw cassava, as they relied on inconsistent third-party out-growers. When out-growers faced harvest issues or redirected crops to local food markets, the factories were forced to shut down.
               </p>
               <p className="faq-answer-v2">
-                Cross World resolves this by cultivating our own 5,000-acre farm with mechanized planting, irrigation, and crop scheduling to ensure a steady, independent supply of fresh cassava tubers all year round.
+                CrossWorld resolves this by cultivating our own 5,000-acre farm with mechanized planting, irrigation, and crop scheduling to ensure a steady, independent supply of fresh cassava tubers all year round.
               </p>
               <div className="faq-links-v2">
                 <Link to="/contact" className="faq-link-v2">

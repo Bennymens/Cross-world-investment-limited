@@ -87,7 +87,7 @@ export default function OurStory() {
               </p>
               <p className="story-text">
                 A key operational challenge in industrial agro-processing (as seen in older projects like the Ayensu Starch Factory)
-                is the erratic supply of cassava roots. Cross World solves this by sourcing raw material
+                is the erratic supply of cassava roots. CrossWorld solves this by sourcing raw material
                 exclusively from our own 5,000-acre farm, establishing full control of our supply chain.
               </p>
             </div>
