@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 import farmImg from "../assets/farm-aerial.png";
-import labImg from "../assets/team-lab.png";
+import labImg from "../assets/processing.png";
 import cassavaImg from "../assets/Cassava.png";
 import cassavaBg from "../assets/cassava 1.webp";
 
