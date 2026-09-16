@@ -166,49 +166,7 @@ export default function OurStory() {
           </div>
         </section>
 
-        {/* Executive Leadership */}
-        <section className="founders-section" ref={foundersRef}>
-          <h2 className="founders-title">Founders & Leadership</h2>
-          <div className="founders-grid">
-            <div className="founder-card">
-              <div className="founder-card-banner">
-                <span className="founder-card-text">A. Assan</span>
-                <span className="founder-card-subtext">Founder &amp; Chief Executive Officer</span>
-              </div>
-            </div>
-            <div className="founder-card">
-              <div className="founder-card-banner">
-                <span className="founder-card-text">Finance &amp; Admin Manager</span>
-                <span className="founder-card-subtext">Accounting, Compliance &amp; Logistics</span>
-              </div>
-            </div>
-            <div className="founder-card">
-              <div className="founder-card-banner">
-                <span className="founder-card-text">Factory Operations Manager</span>
-                <span className="founder-card-subtext">Production, Quality Control &amp; Scheduling</span>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Operational Management */}
-        <section className="management-section" ref={managementRef}>
-          <h2 className="management-title">Operational Management</h2>
-          <div className="management-grid">
-            <div className="management-card">
-              <div className="management-card-banner">
-                <span className="management-card-text">Farm Operations Manager</span>
-                <span className="management-card-subtext">Crop Planning, Soil Health &amp; Mechanization</span>
-              </div>
-            </div>
-            <div className="management-card">
-              <div className="management-card-banner">
-                <span className="management-card-text">Human Resources Manager</span>
-                <span className="management-card-subtext">Recruiting, Security &amp; Workplace Wellbeing</span>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </main>
   );

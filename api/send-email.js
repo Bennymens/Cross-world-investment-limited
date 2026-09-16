@@ -20,7 +20,16 @@ export default async function handler(req, res) {
   }
 
   // ── Guard: check all required env vars are present ────────────────────────
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_SECURE, CONTACT_TO } = process.env;
+  // Strip surrounding quotes (e.g. SMTP_PASS="value#with#hash" in .env files)
+  const stripQuotes = (s) => s ? s.trim().replace(/^["']|["']$/g, '') : s;
+
+  const SMTP_HOST = stripQuotes(process.env.SMTP_HOST);
+  const SMTP_PORT = stripQuotes(process.env.SMTP_PORT);
+  const SMTP_USER = stripQuotes(process.env.SMTP_USER);
+  const SMTP_PASS = stripQuotes(process.env.SMTP_PASS);
+  const SMTP_SECURE = stripQuotes(process.env.SMTP_SECURE);
+  const CONTACT_TO = stripQuotes(process.env.CONTACT_TO);
+
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
     console.error("Missing SMTP environment variables:", {
       SMTP_HOST: !!SMTP_HOST,
@@ -46,10 +55,14 @@ export default async function handler(req, res) {
   }
 
   // ── Create SMTP transporter ────────────────────────────────────────────────
+  const portNum = Number(SMTP_PORT);
+  // Port 465 defaults to secure SSL (true); Port 587 defaults to STARTTLS (false)
+  const isSecure = SMTP_SECURE !== undefined ? SMTP_SECURE === "true" : portNum === 465;
+
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
-    port: Number(SMTP_PORT),
-    secure: SMTP_SECURE === "true", // true for port 465 (SSL)
+    port: portNum,
+    secure: isSecure,
     auth: {
       user: SMTP_USER,
       pass: SMTP_PASS,
